@@ -1,0 +1,5 @@
+C:\Users\Thaumy\Desktop\IDBuilder4\IDBuilder4\obj\Debug\netcoreapp3.1\IDBuilder4.csprojAssemblyReference.cache
+C:\Users\Thaumy\Desktop\IDBuilder4\IDBuilder4\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Thaumy\Desktop\IDBuilder4\IDBuilder4\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Thaumy\Desktop\IDBuilder4\IDBuilder4\obj\Debug\netcoreapp3.1\IDBuilder4_MarkupCompile.cache
+C:\Users\Thaumy\Desktop\IDBuilder4\IDBuilder4\obj\Debug\netcoreapp3.1\IDBuilder4_MarkupCompile.lref
