@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "H:\\C#项目开发\\IDBuilder3\\IDBuilder3\\IDBuilder3.csproj": {}
+    "C:\\Users\\Thaumy\\Desktop\\GitHub\\IDBuilder\\IDBuilder3\\IDBuilder3\\IDBuilder3.csproj": {}
   },
   "projects": {
-    "H:\\C#项目开发\\IDBuilder3\\IDBuilder3\\IDBuilder3.csproj": {
+    "C:\\Users\\Thaumy\\Desktop\\GitHub\\IDBuilder\\IDBuilder3\\IDBuilder3\\IDBuilder3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\C#项目开发\\IDBuilder3\\IDBuilder3\\IDBuilder3.csproj",
+        "projectUniqueName": "C:\\Users\\Thaumy\\Desktop\\GitHub\\IDBuilder\\IDBuilder3\\IDBuilder3\\IDBuilder3.csproj",
         "projectName": "IDBuilder3",
-        "projectPath": "H:\\C#项目开发\\IDBuilder3\\IDBuilder3\\IDBuilder3.csproj",
+        "projectPath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\IDBuilder\\IDBuilder3\\IDBuilder3\\IDBuilder3.csproj",
         "packagesPath": "C:\\Users\\Thaumy\\.nuget\\packages\\",
-        "outputPath": "H:\\C#项目开发\\IDBuilder3\\IDBuilder3\\obj\\",
+        "outputPath": "C:\\Users\\Thaumy\\Desktop\\GitHub\\IDBuilder\\IDBuilder3\\IDBuilder3\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

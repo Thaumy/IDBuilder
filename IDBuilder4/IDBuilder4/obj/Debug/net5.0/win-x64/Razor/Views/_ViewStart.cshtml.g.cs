@@ -19,15 +19,8 @@ using IDBuilder4;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\Views\_ViewImports.cshtml"
-using IDBuilder4.Models;
-
-#line default
-#line hidden
-#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"562992a27f580c6538baf2a6820916fff54c7481", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f84485229f96dfc52538ea41558fb38422cc2e4f", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

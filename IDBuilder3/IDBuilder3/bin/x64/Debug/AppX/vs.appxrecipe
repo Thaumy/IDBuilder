@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>ee1671f0-fe1e-4491-9290-5913d7181101</PackageIdentityName>
     <PackageIdentityPublisher>CN=Thaumy</PackageIdentityPublisher>
-    <IntermediateOutputPath>H:\C#项目开发\IDBuilder3\IDBuilder3\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>H:\C#项目开发\IDBuilder3\IDBuilder3\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>55441770EC83087521D12E78F8D0A8241C1522AAFF29E04C62F6B6D0A09FE247</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>46C7E505C236A2A71AC3A93CD09D9EE64C9391BACED0F4EF303DD01C187EBBDE</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>ee1671f0-fe1e-4491-9290-5913d7181101_1.0.5.0_x64__gwtcd6gdbp5gj</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>ee1671f0-fe1e-4491-9290-5913d7181101_gwtcd6gdbp5gj!App</RegisteredUserModeAppID>
     <RegisteredPackageID>ee1671f0-fe1e-4491-9290-5913d7181101</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.5.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="H:\C#项目开发\IDBuilder3\IDBuilder3\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-12-26T06:07:51.274</Modified>
+      <Modified>2021-02-06T03:38:16.122</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\bin\x64\Debug\IDBuilder3.exe">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\bin\x64\Debug\IDBuilder3.exe">
       <PackagePath>entrypoint\IDBuilder3.exe</PackagePath>
-      <Modified>2020-12-26T06:07:50.720</Modified>
+      <Modified>2021-02-06T03:38:14.869</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,67 +46,67 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T10:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2020-08-04T13:23:49.741</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2020-07-24T11:21:06.200</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-07-24T11:21:06.200</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-07-24T11:21:06.200</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-07-24T11:21:06.200</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-07-24T11:21:06.200</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-07-24T11:21:06.200</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-07-24T11:21:06.200</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\bin\x64\Debug\IDBuilder3.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\bin\x64\Debug\IDBuilder3.xr.xml">
       <PackagePath>IDBuilder3.xr.xml</PackagePath>
       <Modified>2020-12-26T06:07:50.654</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-12-26T06:06:05.388</Modified>
+      <Modified>2021-02-06T03:38:14.780</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-12-26T06:07:50.663</Modified>
+      <Modified>2021-02-06T03:38:14.781</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T09:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-12-22T09:08:10.214</Modified>
+      <Modified>2021-02-06T03:38:15.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="H:\C#项目开发\IDBuilder3\IDBuilder3\bin\x64\Debug\Core\IDBuilder3.exe">
+    <AppxPackagedFile Include="C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder3\IDBuilder3\bin\x64\Debug\Core\IDBuilder3.exe">
       <PackagePath>IDBuilder3.exe</PackagePath>
-      <Modified>2020-12-26T06:07:51.274</Modified>
+      <Modified>2021-02-06T03:38:16.111</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
