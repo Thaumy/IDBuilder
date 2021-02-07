@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace IDBuilder4.Controllers
 {
-    public class HomeController : Controller
+    public class MainController : Controller
     {
-        public HomeController()
+        public MainController()
         {
         }
 
-        public IActionResult Index()
+        public IActionResult Home()
         {
             return View();
         }

@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Material Design Icons';
+    src: url('/dependences/fonts/materialdesignicons-webfont.eot'),
+        url('/dependences/fonts/materialdesignicons-webfont.ttf'),
+        url('/dependences/fonts/materialdesignicons-webfont.woff'),
+        url('/dependences/fonts/materialdesignicons-webfont.woff2');
+    font-display: swap;
+}
+
+#main {
+    height: 100px;
+    width: 100%;
+    background-color: aquamarine;
+    grid-template-columns: 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10%;
+}
+
+#UUID_N {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#UUID_D {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#YMD_rdm {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#YMD {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}

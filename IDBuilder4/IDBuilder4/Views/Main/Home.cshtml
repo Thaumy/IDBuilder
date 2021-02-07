@@ -1,0 +1,75 @@
+﻿
+<div id="app">
+    <v-app>
+        <v-container>
+            <v-row>
+                <v-col cols="4">
+                    <v-text-field outlined label="UUID(typeN) 8dfe52f7133945aca517c4f4b563737d"
+                                  prepend-inner-icon="mdi-alpha-n-box"></v-text-field>
+                    <v-text-field outlined label="UUID(typeD) a3dfcd64-0f61-46a0-9706-4a9a36fee1f2"
+                                  prepend-inner-icon="mdi-alpha-d-box"></v-text-field>
+                </v-col>
+
+                <v-col cols="4">
+                    <v-text-field outlined label="YMD-XXX 202102061235-738c"
+                                  prepend-inner-icon="mdi-calendar-month">
+                    </v-text-field>
+                    <v-text-field outlined label="YMD 202102061235" prepend-inner-icon="mdi-calendar-month">
+                    </v-text-field>
+                </v-col>
+
+                <v-col cols="4">
+                    <v-text-field outlined label="RandomNumber 1234567891012" prepend-inner-icon="mdi-tilde">
+                    </v-text-field>
+                    <v-text-field outlined label="RandomString Ae7Fd12zK1afz" prepend-inner-icon="mdi-tilde">
+                    </v-text-field>
+                </v-col>
+            </v-row>
+            <v-row class="mt-n6">
+                <v-col cols="6">
+                    <v-textarea outlined clearable no-resize name="input-7-4" label="RSA2048 PubK PKCS#8">
+                    </v-textarea>
+                </v-col>
+                <v-col cols="6">
+                    <v-textarea outlined clearable no-resize name="input-7-4" label="RSA2048 PriK PKCS#1">
+                    </v-textarea>
+                </v-col>
+            </v-row>
+            <v-row class="mt-n6">
+                <v-col cols="5">
+                    <v-textarea outlined clearable no-resize name="input-7-4" label="明文区"></v-textarea>
+                </v-col>
+                <v-col cols="2">
+                    <v-btn width="100%" height="32px" class="mb-2">SHA1</v-btn>
+                    <v-btn width="100%" height="32px" class="mb-2">MD5</v-btn>
+                    <v-btn width="100%" height="32px" class="mb-2">RSA</v-btn>
+                    <v-btn width="100%" height="32px" color="primary">REGEN</v-btn>
+                </v-col>
+                <v-col cols="5">
+                    <v-textarea outlined clearable no-resize name="input-7-4" label="结果区"></v-textarea>
+                </v-col>
+            </v-row>
+        </v-container>
+
+
+    </v-app>
+</div>
+
+<script src="dependences/vue.js"></script>
+<script src="dependences/vuetify.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        vuetify: new Vuetify({
+            theme: {
+                dark: true
+            }
+        }),
+    })
+</script>
+<!--莫名其妙多个iframe-->
+<style>
+    iframe {
+        display: none;
+    }
+</style>

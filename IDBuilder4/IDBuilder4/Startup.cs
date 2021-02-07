@@ -45,7 +45,7 @@ namespace IDBuilder4
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "",
-                    defaults: new { controller = "Home", action = "Index" });
+                    defaults: new { controller = "Main", action = "Home" });
             });
 
             // Open the Electron-Window here

@@ -30,7 +30,6 @@ C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\IDBuilder4.TagHelpers.input.cache
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\IDBuilder4.TagHelpers.output.cache
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\IDBuilder4.RazorCoreGenerate.cache
-C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\Razor\Views\_ViewImports.cshtml.g.cs
@@ -43,3 +42,4 @@ C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\ref\IDBuilder4.dll
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\IDBuilder4.pdb
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\IDBuilder4.genruntimeconfig.cache
+C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\win-x64\Razor\Views\Main\Home.cshtml.g.cs
