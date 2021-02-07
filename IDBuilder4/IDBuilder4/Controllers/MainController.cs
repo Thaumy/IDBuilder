@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using WaterLibrary.Utils;
+using Newtonsoft.Json;
 
 namespace IDBuilder4.Controllers
 {
@@ -19,24 +21,30 @@ namespace IDBuilder4.Controllers
 
         public IActionResult Home()
         {
-            Sig_INIT(out string UUID_N, out string UUID_D, out string YMD_XXX, out string YMD);
-            ViewBag.UUID_N = UUID_N;
-            ViewBag.UUID_D = UUID_D;
-            ViewBag.YMD_XXX = YMD_XXX;
-            ViewBag.YMD = YMD;
-
-            Rsa_INIT(out string PubK, out string PriK);
-            ViewBag.PubK = PubK;
-            ViewBag.PriK = PriK;
-
-            Rnd_INIT(out string RndNumber, out string RndString);
-            ViewBag.RndNumber = RndNumber;
-            ViewBag.RndString = RndString;
-
             return View();
         }
 
-        private static void Sig_INIT(out string UUID_N, out string UUID_D, out string YMD_XXX, out string YMD)
+        [HttpPost]
+        public string INIT()
+        {
+            Sig_INIT(out string UUID_N, out string UUID_D, out string YMD_XXXX, out string YMD);
+            Rnd_INIT(out string RndNumber, out string RndString);
+            Rsa_INIT(out string PubK, out string PriK);
+
+            return JsonConvert.SerializeObject(new Hashtable()
+            {
+                {"UUID_N", UUID_N},
+                {"UUID_D", UUID_D},
+                {"YMD_XXXX", YMD_XXXX},
+                {"YMD", YMD},
+                {"RndNumber", RndNumber},
+                {"RndString", RndString},
+                {"PubK", PubK},
+                {"PriK", PriK},
+            });
+        }
+
+        private static void Sig_INIT(out string UUID_N, out string UUID_D, out string YMD_XXXX, out string YMD)
         {
             DateTime now = DateTime.Now;
 
@@ -50,13 +58,12 @@ namespace IDBuilder4.Controllers
 
             UUID_N = Guid.NewGuid().ToString("N");
             UUID_D = Guid.NewGuid().ToString("D");
-            YMD_XXX = TOTALSTRING + "_" + Guid.NewGuid().ToString("N").Substring(0, 4);
+            YMD_XXXX = TOTALSTRING + "_" + Guid.NewGuid().ToString("N").Substring(0, 4);
             YMD = TOTALSTRING;
         }
 
         private static void Rsa_INIT(out string PubK, out string PriK)
         {
-            //RSA密钥对
             var kp = new KeyPair(2048);
             PriK = kp.PrivateKey;
             PubK = kp.PublicKey;
@@ -71,7 +78,7 @@ namespace IDBuilder4.Controllers
                 "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
                 "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
-            string GenRnd(int Length, params string[] dic)
+            static string GenRnd(int Length, params string[] dic)
             {
                 StringBuilder builder = new();
                 Random rnd = new((int)DateTime.Now.Ticks);
@@ -85,13 +92,53 @@ namespace IDBuilder4.Controllers
             }
         }
 
-        private static string RsaEncrypt(string PubK, string Plain)
+
+        [HttpPost]
+        public string MD5_Encrypt(string Plain)
         {
-            return MathH.RSAEncrypt(PubK, Plain);
+            return MathH.MD5(Plain);
         }
-        private static string RsaDecrypt(string PriK, string Cipher)
+        [HttpPost]
+        public string SHA1_Encrypt(string Plain)
         {
-            return MathH.RSADecrypt(PriK, Cipher);
+            return MathH.SHA1(Plain);
+        }
+        [HttpPost]
+        public string RSA_Encrypt(string Plain, string PubK)
+        {
+            try
+            {
+                Replace(ref Plain);
+                Replace(ref PubK);
+                return MathH.RSAEncrypt(Plain, PubK);
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+        [HttpPost]
+        public string RSA_Decrypt(string Cipher, string PriK)
+        {
+            try
+            {
+                Replace(ref Cipher);
+                Replace(ref PriK);
+                return MathH.RSADecrypt(Cipher, PriK);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static void Replace(ref string src)
+        {
+            if (src != null)
+            {
+                src = src.Replace("&#xA;", "\n").Replace("&#x2B;", "+");
+            }
         }
     }
 }
