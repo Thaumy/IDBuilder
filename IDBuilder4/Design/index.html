@@ -17,34 +17,36 @@
             <v-container>
                 <v-row>
                     <v-col cols="4">
-                        <v-text-field outlined label="UUID(typeN) 8dfe52f7133945aca517c4f4b563737d"
-                            prepend-inner-icon="mdi-alpha-n-box"></v-text-field>
-                        <v-text-field outlined label="UUID(typeD) a3dfcd64-0f61-46a0-9706-4a9a36fee1f2"
-                            prepend-inner-icon="mdi-alpha-d-box"></v-text-field>
+                        <v-text-field outlined label="UUID(typeN)" prepend-inner-icon="mdi-alpha-n-box"
+                            v-model="UUID_N"></v-text-field>
+                        <v-text-field outlined label="UUID(typeD)" prepend-inner-icon="mdi-alpha-d-box"
+                            v-model="UUID_D"></v-text-field>
                     </v-col>
 
                     <v-col cols="4">
-                        <v-text-field outlined label="YMD-XXX 202102061235-738c"
-                            prepend-inner-icon="mdi-calendar-month">
+                        <v-text-field outlined label="YMD_XXX" prepend-inner-icon="mdi-calendar-month"
+                            v-model="YMD_XXX">
                         </v-text-field>
-                        <v-text-field outlined label="YMD 202102061235" prepend-inner-icon="mdi-calendar-month">
+                        <v-text-field outlined label="YMD" prepend-inner-icon="mdi-calendar-month" v-model="YMD">
                         </v-text-field>
                     </v-col>
 
                     <v-col cols="4">
-                        <v-text-field outlined label="RandomNumber 1234567891012" prepend-inner-icon="mdi-tilde">
+                        <v-text-field outlined label="RndNumber" prepend-inner-icon="mdi-tilde" v-model="RndNumber">
                         </v-text-field>
-                        <v-text-field outlined label="RandomString Ae7Fd12zK1afz" prepend-inner-icon="mdi-tilde">
+                        <v-text-field outlined label="RndString" prepend-inner-icon="mdi-tilde" v-model="RndString">
                         </v-text-field>
                     </v-col>
                 </v-row>
                 <v-row class="mt-n6">
                     <v-col cols="6">
-                        <v-textarea outlined clearable no-resize name="input-7-4" label="RSA2048 PubK PKCS#8">
+                        <v-textarea outlined clearable no-resize name="input-7-4" label="RSA2048 PubK PKCS#8"
+                            v-model="PubK">
                         </v-textarea>
                     </v-col>
                     <v-col cols="6">
-                        <v-textarea outlined clearable no-resize name="input-7-4" label="RSA2048 PriK PKCS#1">
+                        <v-textarea outlined clearable no-resize name="input-7-4" label="RSA2048 PriK PKCS#1"
+                            v-model="PriK">
                         </v-textarea>
                     </v-col>
                 </v-row>
@@ -78,6 +80,18 @@
                     dark: true
                 }
             }),
+            data() {
+                return {
+                    UUID_N: '8dfe52f7133945aca517c4f4b563737d',
+                    UUID_D: 'f2a3f6fc-352d-410c-a717-982955c897ed',
+                    YMD_XXX: '202102061235_738c',
+                    YMD: '202102061235',
+                    RndNumber: '1234567891012',
+                    RndString: 'Ae7Fd12zK1afz',
+                    PubK: '',
+                    PriK: ''
+                }
+            },
         })
     </script>
     <!--莫名其妙多个iframe-->
