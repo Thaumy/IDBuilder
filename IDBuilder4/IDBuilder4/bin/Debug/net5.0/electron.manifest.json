@@ -4,7 +4,7 @@
     "imageFile": ""
   },
   "name": "IDBuilder4",
-  "author": "",
+  "author": "Thaumy",
   "singleInstance": false,
   "environment": "Production",
   "build": {
