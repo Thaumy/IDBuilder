@@ -43,3 +43,6 @@ C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\IDBuilder4.pdb
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\IDBuilder4.genruntimeconfig.cache
 C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\obj\Debug\net5.0\Razor\Views\Main\Home.cshtml.g.cs
+C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\bin\Debug\net5.0\WaterLibrary.dll
+C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\bin\Debug\net5.0\WaterLibrary.pdb
+C:\Users\Thaumy\Desktop\GitHub\IDBuilder\IDBuilder4\IDBuilder4\bin\Debug\net5.0\WaterLibrary.xml
