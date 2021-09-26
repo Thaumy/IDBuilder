@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'Material Design Icons';
-    src: url('/dependences/fonts/materialdesignicons-webfont.eot'),
-        url('/dependences/fonts/materialdesignicons-webfont.ttf'),
-        url('/dependences/fonts/materialdesignicons-webfont.woff'),
-        url('/dependences/fonts/materialdesignicons-webfont.woff2');
-    font-display: swap;
-}
