@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>idb5_server</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="IdView\hash.fs" />
+        <Compile Include="IdView\IdView.fs" />
+        <Compile Include="app.fs" />
+
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="palaflake, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <HintPath>..\plflk_fs\palaflake\bin\Debug\net5.0\palaflake.dll</HintPath>
+        </Reference>
+        <Reference Include="WebSocketer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+            <HintPath>..\WebSocketer\bin\Debug\net6.0\WebSocketer.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+</Project>
