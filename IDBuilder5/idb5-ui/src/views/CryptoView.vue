@@ -1,20 +1,20 @@
 <template>
   <div>
-    <v-row>
+    <v-row class="mb-n12">
       <v-col cols="5">
-        <v-textarea no-resize label="PKCS#1 Public Key" v-model="PubK"></v-textarea>
+        <v-textarea rows="3" no-resize label="PKCS#1 Public Key" v-model="PubK"></v-textarea>
       </v-col>
       <v-col cols="2">
-        <v-row justify="center" class="mt-10">
+        <v-row justify="center" class="mt-4">
           <v-btn class="py-10" height="32px" v-on:click="INIT()">REGEN</v-btn>
         </v-row>
       </v-col>
       <v-col cols="5">
-        <v-textarea no-resize label="PKCS#8 Private Key" v-model="PriK"></v-textarea>
+        <v-textarea rows="3" no-resize label="PKCS#8 Private Key" v-model="PriK"></v-textarea>
       </v-col>
     </v-row>
 
-    <v-row>
+    <v-row class="mb-n10">
       <v-col cols="5">
         <v-textarea no-resize label="Plain Text" v-model="PubK"></v-textarea>
       </v-col>
@@ -44,9 +44,9 @@
 
       <v-col cols="2">
         <v-text-field
-          label="Bits"
-          prepend-inner-icon="mdi-alpha-b-box"
-          v-model="Palaflake"
+            label="Bits"
+            prepend-inner-icon="mdi-alpha-b-box"
+            v-model="Palaflake"
         ></v-text-field>
       </v-col>
     </v-row>

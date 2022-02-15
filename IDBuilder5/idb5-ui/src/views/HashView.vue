@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-row>
+    <v-row class="mb-n8">
       <v-col cols="12">
-        <v-textarea outlined label="Text" prepend-inner-icon="mdi-alpha-t-box" v-model="Palaflake"></v-textarea>
+        <v-textarea class="mb-n8" rows="6" outlined label="Text" prepend-inner-icon="mdi-alpha-t-box" v-model="Palaflake"></v-textarea>
       </v-col>
     </v-row>
-    <v-row class="mt-n10" justify="center">
+    <v-row class="mb-n12" justify="center">
       <v-col cols="1">
         <v-checkbox v-model="use_md5" label="MD5"></v-checkbox>
       </v-col>
@@ -16,8 +16,8 @@
         <v-checkbox v-model="use_sha256" label="SHA256"></v-checkbox>
       </v-col>
     </v-row>
-    <v-row justify="center">
-      <v-btn width="50%" class="mt-n6 mb-4" v-on:click="INIT()">ENCRYPT</v-btn>
+    <v-row class="mb-8" justify="center">
+      <v-btn width="50%" v-on:click="INIT()">ENCRYPT</v-btn>
     </v-row>
     <v-row justify="center">
       <v-col>
