@@ -94,6 +94,27 @@ export default {
       //this.uuid = "111"
       ws.send(`get_id_view_data ${this.palaflake_machine_id} ${this.palaflake_start_year}`)
     },
+    format_uuid() {
+      if (this.no_joiner_uuid)//remove joiner
+        this.uuid = this.uuid.replace(/-/g, "")
+      else {//restore joiner
+        let arr = this.uuid.split('')
+
+        arr.splice(8, 0, '-')
+        arr.splice(13, 0, '-')
+        arr.splice(18, 0, '-')
+
+        this.uuid = arr.join('')
+      }//TODO
+    }
   },
+  watch: {
+    no_joiner_uuid: function () {
+      this.format_uuid()
+    },
+    uuid: function () {
+      this.format_uuid()
+    }
+  }
 };
 </script>
