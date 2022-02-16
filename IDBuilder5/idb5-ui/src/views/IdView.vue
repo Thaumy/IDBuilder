@@ -78,9 +78,10 @@ export default {
   },
   methods: {
     regen_btn() {
-      const ws = this.$ws
 
-      ws.onmessage = (msg) => {
+      this.$ws.send(`get_id_view_data ${this.palaflake_machine_id} ${this.palaflake_start_year}`)
+
+      this.$ws.onmessage = (msg) => {
         console.log(msg.data)
 
         let data = JSON.parse(msg.data)
@@ -91,8 +92,6 @@ export default {
         this.rnd_number = data.rnd_number
         this.rnd_string = data.rnd_string
       }
-      //this.uuid = "111"
-      ws.send(`get_id_view_data ${this.palaflake_machine_id} ${this.palaflake_start_year}`)
     },
     format_uuid() {
       if (this.no_joiner_uuid)//remove joiner

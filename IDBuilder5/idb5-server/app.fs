@@ -13,8 +13,12 @@ open WebSocketer.Server
 
 open idb5_server.IdView
 
+Console.WriteLine "Welcome to IDBuilder server."
+
 let f (ws: WebSocket) =
+    Console.WriteLine "New client online."
     while true do
+        Console.WriteLine "Waiting for request."
         let msg = ws.recv ()
         Console.WriteLine msg
 
@@ -25,7 +29,5 @@ let f (ws: WebSocket) =
 
             gen palaflake_machine_id palaflake_start_year
             |> ws.send
-
-    Console.WriteLine "closed"
 
 listen 20222us f |> ignore
