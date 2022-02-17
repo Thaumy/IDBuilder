@@ -17,6 +17,7 @@ Console.WriteLine "Welcome to IDBuilder server."
 
 let f (ws: WebSocket) =
     Console.WriteLine "New client online."
+
     while true do
         Console.WriteLine "Waiting for request."
         let msg = ws.recv ()
@@ -29,5 +30,8 @@ let f (ws: WebSocket) =
 
             gen palaflake_machine_id palaflake_start_year
             |> ws.send
+
+        if msg.StartsWith "get_time_view_data" then
+            "" |> ws.send
 
 listen 20222us f |> ignore

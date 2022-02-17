@@ -38,15 +38,17 @@
       <v-col cols="3">
         <v-text-field
             outlined
-            label="Palaflake Machine ID"
+            label="Palaflake Machine ID [0,255]"
             v-model="palaflake_machine_id"
+            :error="palaflake_machine_id_err"
         ></v-text-field>
       </v-col>
       <v-col cols="3">
         <v-text-field
             outlined
-            label="Palaflake Start Year"
+            label="Palaflake Start Year [0,now or 65535]"
             v-model="palaflake_start_year"
+            :error="palaflake_start_year_err"
         ></v-text-field>
       </v-col>
       <v-col cols="2">
@@ -73,47 +75,69 @@ export default {
       rnd_string: "",
       palaflake_machine_id: 1,
       palaflake_start_year: 2022,
-      no_joiner_uuid: true
+      palaflake_machine_id_err: false,
+      palaflake_start_year_err: false,
+      no_joiner_uuid: true,
+      data: {}
     };
   },
   methods: {
+    render() {
+      this.uuid = this.data.uuid
+      this.palaflake = this.data.palaflake
+      this.ymd = this.data.ymd
+      this.ymd_xxxx = this.data.ymd_xxxx
+      this.rnd_number = this.data.rnd_number
+      this.rnd_string = this.data.rnd_string
+
+      if (this.no_joiner_uuid)
+        this.unjoin_uuid()
+      else if (!this.uuid.includes('-') && this.uuid.length === 32) //未格式化
+        this.join_uuid()
+    },
     regen_btn() {
+      //检查合法性
+      if (this.palaflake_machine_id < 0 || this.palaflake_machine_id > 255) {
+        this.palaflake_machine_id_err = true;
+        return
+      } else
+        this.palaflake_machine_id_err = false;
+      if (this.palaflake_start_year > (new Date()).getFullYear() || this.palaflake.palaflake_start_year > 65535) {
+        this.palaflake_start_year_err = true;
+        return
+      } else
+        this.palaflake_start_year_err = false;
 
       this.$ws.send(`get_id_view_data ${this.palaflake_machine_id} ${this.palaflake_start_year}`)
 
       this.$ws.onmessage = (msg) => {
         console.log(msg.data)
-
-        let data = JSON.parse(msg.data)
-        this.uuid = data.uuid
-        this.palaflake = data.palaflake
-        this.ymd = data.ymd
-        this.ymd_xxxx = data.ymd_xxxx
-        this.rnd_number = data.rnd_number
-        this.rnd_string = data.rnd_string
+        this.data = JSON.parse(msg.data)
+        this.render()
       }
     },
-    format_uuid() {
-      if (this.no_joiner_uuid)//remove joiner
-        this.uuid = this.uuid.replace(/-/g, "")
-      else {//restore joiner
-        let arr = this.uuid.split('')
+    join_uuid() {//restore joiner
+      let arr = this.uuid.split('')
+      //restore joiner
+      arr.splice(8, 0, '-')
+      arr.splice(13, 0, '-')
+      arr.splice(18, 0, '-')
 
-        arr.splice(8, 0, '-')
-        arr.splice(13, 0, '-')
-        arr.splice(18, 0, '-')
-
-        this.uuid = arr.join('')
-      }//TODO
+      this.uuid = arr.join('')
     }
+    ,
+    unjoin_uuid() {//remove joiner
+      this.uuid = this.uuid.replace(/-/g, "")
+    },
+
   },
   watch: {
     no_joiner_uuid: function () {
-      this.format_uuid()
+      if (this.no_joiner_uuid)
+        this.unjoin_uuid()
+      else if (!this.uuid.includes('-') && this.uuid.length === 32) //未格式化
+        this.join_uuid()
     },
-    uuid: function () {
-      this.format_uuid()
-    }
-  }
+  },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <v-card style="margin-top: 100px" class="mx-auto" max-width="310"  elevation="8">
+  <v-card style="margin-top: 100px" class="mx-auto" max-width="310"  elevation="4">
     <v-list-item three-line>
       <v-list-item-content>
         <div class="overline mb-4">IDBuilder</div>
