@@ -7,8 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="IdView\hash.fs" />
-        <Compile Include="IdView\IdView.fs" />
+        <Compile Include="views\IdView.fs" />
+        <Compile Include="views\TimeView.fs" />
+        <Compile Include="views\HashView.fs" />
+        <Compile Include="views\CryptoView.fs" />
+        <Compile Include="views\StringView.fs" />
         <Compile Include="app.fs" />
 
     </ItemGroup>
@@ -20,6 +23,10 @@
         <Reference Include="WebSocketer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
             <HintPath>..\WebSocketer\bin\Debug\net6.0\WebSocketer.dll</HintPath>
         </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.15.1" />
     </ItemGroup>
 
 </Project>

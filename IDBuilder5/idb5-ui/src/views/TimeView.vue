@@ -30,7 +30,12 @@
     </v-row>
     <v-row justify="center" class="mb-n6">
       <v-col cols="2">
-        <v-text-field outlined label="UTC+" v-model="utc_plus"></v-text-field>
+        <v-text-field
+            label="UTC+"
+            type="number"
+            v-model="utc_plus"
+            :error="utc_plus_err"
+        ></v-text-field>
       </v-col>
     </v-row>
     <!-- 微调使之与idView的REGEN按钮对齐  -->
@@ -48,7 +53,10 @@ export default {
       sec_timestamp: "",
       mili_timestamp: "",
       db_time_format: "",
-      utc_plus: "",
+      utc_plus: "0",
+
+      utc_plus_err: false,
+
       data: {}
     };
   },
@@ -57,42 +65,24 @@ export default {
       this.sec_timestamp = this.data.sec_timestamp
       this.mili_timestamp = this.data.mili_timestamp
       this.db_time_format = this.data.db_time_format
-      this.utc_plus = this.data.utc_plus
-
-      if (this.no_joiner_uuid)
-        this.unjoin_uuid()
-      else if (!this.uuid.includes('-') && this.uuid.length === 32) //未格式化
-        this.join_uuid()
     },
     regen_btn() {
       //检查合法性
-      if (this.palaflake_machine_id < 0 || this.palaflake_machine_id > 255) {
-        this.palaflake_machine_id_err = true;
+      if (this.utc_plus < -12 || this.utc_plus > 12) {
+        this.utc_plus_err = true
         return
       } else
-        this.palaflake_machine_id_err = false;
-      if (this.palaflake_start_year > (new Date()).getFullYear() || this.palaflake.palaflake_start_year > 65535) {
-        this.palaflake_start_year_err = true;
-        return
-      } else
-        this.palaflake_start_year_err = false;
-
-      this.$ws.send(`get_id_view_data ${this.palaflake_machine_id} ${this.palaflake_start_year}`)
+        this.utc_plus_err = false
 
       this.$ws.onmessage = (msg) => {
         console.log(msg.data)
         this.data = JSON.parse(msg.data)
         this.render()
       }
+
+      this.$ws.send(`get_time_view_data ${this.utc_plus}`)
+
     },
-  },
-  watch: {
-    /*no_joiner_uuid: function () {
-      if (this.no_joiner_uuid)
-        this.unjoin_uuid()
-      else if (!this.uuid.includes('-') && this.uuid.length === 32) //未格式化
-        this.join_uuid()
-    },*/
-  },
+  }
 };
 </script>

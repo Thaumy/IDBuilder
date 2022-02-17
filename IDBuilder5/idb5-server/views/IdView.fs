@@ -15,7 +15,7 @@ let genRnd len (dic: char []) =
 
 
 
-let gen palaflake_machine_id palaflake_start_year : string =
+let genIdViewData palaflake_machine_id palaflake_start_year : string =
 
     let uuid = Guid.NewGuid().ToString("D")
 

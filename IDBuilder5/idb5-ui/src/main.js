@@ -4,6 +4,9 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import {loadFonts} from './plugins/webfontloader'
 
+import './assets/css/html.css'
+import './assets/css/scrollbar.css'
+
 loadFonts()
 
 let app = createApp(App)

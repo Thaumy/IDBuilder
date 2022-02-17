@@ -39,6 +39,7 @@
         <v-text-field
             outlined
             label="Palaflake Machine ID [0,255]"
+            type="number"
             v-model="palaflake_machine_id"
             :error="palaflake_machine_id_err"
         ></v-text-field>
@@ -47,6 +48,7 @@
         <v-text-field
             outlined
             label="Palaflake Start Year [0,now or 65535]"
+            type="number"
             v-model="palaflake_start_year"
             :error="palaflake_start_year_err"
         ></v-text-field>
@@ -75,9 +77,11 @@ export default {
       rnd_string: "",
       palaflake_machine_id: 1,
       palaflake_start_year: 2022,
+
       palaflake_machine_id_err: false,
       palaflake_start_year_err: false,
       no_joiner_uuid: true,
+
       data: {}
     };
   },
@@ -108,13 +112,13 @@ export default {
       } else
         this.palaflake_start_year_err = false;
 
-      this.$ws.send(`get_id_view_data ${this.palaflake_machine_id} ${this.palaflake_start_year}`)
-
       this.$ws.onmessage = (msg) => {
         console.log(msg.data)
         this.data = JSON.parse(msg.data)
         this.render()
       }
+
+      this.$ws.send(`get_id_view_data ${this.palaflake_machine_id} ${this.palaflake_start_year}`)
     },
     join_uuid() {//restore joiner
       let arr = this.uuid.split('')
