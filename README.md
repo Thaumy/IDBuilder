@@ -1,18 +1,43 @@
 # IDBuilder
 
-> 一个服务于Thaumy日常工作的小工具，用于文字解转码和密码学工作。
+> 一个服务于Thaumy日常工作的小工具，用于规范化基础设施工作流。
 
-## 涵盖功能（IDBuilder4）
+## 涵盖功能（IDBuilder5）
 
-* UUID生成（MS-GUID N型或D型）
-* 为年月日命名而设计的字符串生成
-* SHA1签名
-* MD5签名
-* RSA2048 PEM（公钥PKCS1，私钥PKCS8）
-  * 密钥对生成
-  * 加密/解密
+### 标识
+
+* UUID生成
+* palaflake生成
+* 字符串、数字的随机生成
+
+### 时间
+
+支持UTC时区调整的：
+
+* 数据库格式的时间字符串生成
+* 秒级及毫秒级时间戳生成
+
+### 数字签名
+
+* MD5、SHA1及SHA256
+
+### 密码学
+
+* 512～8192位RSA密钥对派生
+* PKCS#1或PKCS#1 OAEP填充下的RSA加解密
+
+### 编码
+
+* 大小写互转换
+* HEX互转换
+* Base64互转换
 
 ## 注意事项
+
+需要.NET6运行时  
+默认占用20222端口用作前后端通信
+
+## 旧版本注意事项
 
 * IDBuilder4
   * 出于跨平台和减轻重构复杂度的考量，该版本使用.NET5和Electron混合开发，故需要.NET5运行时。
@@ -21,14 +46,3 @@
   * 使用UWP构建，由于Windows商店许可证等问题，需要在本地环境中编译后使用。
 * IDBuilder1与IDBuilder2
   * 使用WPF构建，过时的版本，不建议使用。
-
-## 许可证
-
-The MIT License (MIT)
-Copyright © 2021 Thaumy
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
