@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VCard/VCardActions.ts"],"names":["createSimpleFunctional","VCardActions"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,YAAY,GAAGD,sBAAsB,CAAC,gBAAD,CAA3C","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VCardActions = createSimpleFunctional('v-card-actions')\n"],"file":"VCardActions.mjs"}

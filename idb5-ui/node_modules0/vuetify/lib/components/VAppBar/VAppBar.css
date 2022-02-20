@@ -1,0 +1,100 @@
+.v-app-bar {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow: hidden;
+  padding-left: 4px;
+  padding-right: calc(4px + var(--v-scrollbar-offset));
+  position: fixed;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: height, transform;
+  border-color: rgba(var(--v-border-color), var(--v-border-opacity));
+  border-style: solid;
+  border-width: 0;
+  background: rgb(var(--v-theme-surface));
+  color: rgb(var(--v-theme-on-surface));
+}
+.v-app-bar--is-active {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.v-app-bar--border {
+  border-width: 0 0 thin;
+  box-shadow: none;
+}
+.v-app-bar--absolute {
+  position: absolute;
+}
+.v-app-bar--border.v-app-bar--bottom {
+  border-bottom-width: 0;
+  border-top-width: 0 0 thin;
+}
+.v-app-bar--collapsed {
+  max-width: 112px;
+  overflow: hidden;
+}
+.v-app-bar--collapsed.v-locale--is-ltr, .v-locale--is-ltr .v-app-bar--collapsed {
+  border-bottom-right-radius: 24px;
+}
+.v-app-bar--collapsed.v-locale--is-rtl, .v-locale--is-rtl .v-app-bar--collapsed {
+  border-bottom-left-radius: 24px;
+}
+.v-app-bar--flat {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+}
+.v-app-bar--floating {
+  display: inline-flex;
+}
+.v-app-bar--rounded {
+  border-radius: 4px;
+}
+
+.v-app-bar__content {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  transition: inherit;
+  width: 100%;
+}
+.v-app-bar--density-default .v-app-bar__content {
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+.v-app-bar--density-comfortable .v-app-bar__content {
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+.v-app-bar--density-compact .v-app-bar__content {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.v-app-bar__extension {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  transition: inherit;
+  width: 100%;
+}
+
+.v-app-bar__image {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  display: flex;
+}
+
+.v-app-bar__append {
+  display: flex;
+  flex: 0 1 auto;
+  margin-inline-start: auto;
+}
+
+.v-app-bar__prepend {
+  display: flex;
+  flex: 0 1 auto;
+}

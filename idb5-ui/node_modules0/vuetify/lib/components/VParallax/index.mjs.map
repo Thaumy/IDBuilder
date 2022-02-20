@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VParallax/index.ts"],"names":["VParallax"],"mappings":"SAASA,S","sourcesContent":["export { VParallax } from './VParallax'\n"],"file":"index.mjs"}

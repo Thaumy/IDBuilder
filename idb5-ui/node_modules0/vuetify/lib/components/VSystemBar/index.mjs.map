@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VSystemBar/index.ts"],"names":["VSystemBar"],"mappings":"SAASA,U","sourcesContent":["export { VSystemBar } from './VSystemBar'\n"],"file":"index.mjs"}

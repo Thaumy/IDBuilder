@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VCard/VCardText.ts"],"names":["createSimpleFunctional","VCardText"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,SAAS,GAAGD,sBAAsB,CAAC,aAAD,CAAxC","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VCardText = createSimpleFunctional('v-card-text')\n"],"file":"VCardText.mjs"}

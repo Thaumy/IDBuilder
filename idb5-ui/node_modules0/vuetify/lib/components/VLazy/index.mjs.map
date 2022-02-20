@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VLazy/index.ts"],"names":["VLazy"],"mappings":"SAASA,K","sourcesContent":["export { VLazy } from './VLazy'\n"],"file":"index.mjs"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VImg/index.ts"],"names":["VImg"],"mappings":"SAASA,I","sourcesContent":["export { VImg } from './VImg'\n"],"file":"index.mjs"}

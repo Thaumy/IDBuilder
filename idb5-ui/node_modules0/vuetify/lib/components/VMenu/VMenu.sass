@@ -1,0 +1,24 @@
+@forward './variables'
+@use '../../styles/tools'
+@use './variables' as *
+
+.v-menu
+  z-index: $menu-z-index
+
+  .v-overlay__content
+    display: flex
+    flex-direction: column
+    @include tools.rounded($menu-content-border-radius)
+
+    > .v-card,
+    > .v-sheet
+      background: rgb(var(--v-theme-surface))
+      border-radius: inherit
+      overflow: auto
+      height: 100%
+
+      &::before
+        border-radius: inherit
+        z-index: -1
+        @include tools.absolute(true)
+        @include tools.elevation($menu-elevation)

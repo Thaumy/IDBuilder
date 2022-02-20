@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VCard/VCardHeader.ts"],"names":["createSimpleFunctional","VCardHeader"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,WAAW,GAAGD,sBAAsB,CAAC,eAAD,CAA1C","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VCardHeader = createSimpleFunctional('v-card-header')\n"],"file":"VCardHeader.mjs"}

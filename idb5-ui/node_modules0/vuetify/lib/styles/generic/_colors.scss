@@ -1,0 +1,46 @@
+@use '../settings';
+@use '../settings/colors';
+
+@mixin background-color($color_value) {
+  background-color: $color_value !important;
+  border-color: $color_value !important;
+}
+@mixin text-color($color_value) {
+  color: $color_value !important;
+  caret-color: $color_value !important;
+}
+
+@if (settings.$color-pack) {
+  @each $color_name, $color_value in colors.$shades {
+    .bg-#{$color_name} {
+      @include background-color($color_value);
+    }
+
+    .text-#{$color_name} {
+      @include text-color($color_value);
+    }
+  }
+
+  @each $color_name, $color_color in colors.$colors {
+    @each $color_type, $color_value in $color_color {
+      @if ($color_type == 'base') {
+        .bg-#{$color_name} {
+          @include background-color($color_value);
+        }
+
+        .text-#{$color_name} {
+          @include text-color($color_value);
+        }
+      }
+      @else if ($color_type != 'shades') {
+        .bg-#{$color_name}-#{$color_type} {
+          @include background-color($color_value);
+        }
+
+        .text-#{$color_name}-#{$color_type} {
+          @include text-color($color_value);
+        }
+      }
+    }
+  }
+}

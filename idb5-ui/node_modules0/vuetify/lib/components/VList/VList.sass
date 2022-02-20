@@ -1,0 +1,87 @@
+@forward './variables'
+@use '../../styles/tools'
+@use './variables' as *
+
+.v-list
+  overflow: auto
+  padding: $list-padding
+  position: relative
+
+  @include tools.border($list-border...)
+  @include tools.elevation($list-elevation)
+  @include tools.position($list-positions)
+  @include tools.rounded($list-border-radius)
+
+  &--disabled
+    pointer-events: none
+    user-select: none
+
+    > [class*='v-list-']
+      opacity: $list-disabled-opacity
+
+  &--rounded
+    @include tools.rounded($list-rounded-border-radius)
+
+  &--subheader
+    padding-top: $list-subheader-padding-top
+
+.v-list-img
+  border-radius: inherit
+  display: flex
+  height: 100%
+  left: 0
+  overflow: hidden
+  position: absolute
+  top: 0
+  width: 100%
+  z-index: -1
+
+.v-list-subheader
+  $root: &
+
+  align-items: center
+  background: inherit
+  display: flex
+  font-size: $list-subheader-font-size
+  font-weight: $list-subheader-font-weight
+  line-height: $list-subheader-line-height
+  padding-inline-end: $list-subheader-padding-end
+  padding-inline-start: $list-subheader-padding-start
+  min-height: $list-subheader-min-height
+  transition: $list-subheader-transition
+
+  &__text
+    opacity: $list-subheader-text-opacity
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+  @at-root
+    @include tools.density('v-list', $list-density) using ($modifier)
+      #{$root}
+        min-height: $list-subheader-min-height + ($modifier * $list-subheader-min-height-multiplier)
+
+  &--inset
+    padding-inline-start: $list-subheader-inset-padding-start
+
+  .v-list--nav &
+    font-size: $list-nav-subheader-font-size
+
+  .v-list--subheader-sticky &
+    background: inherit
+    left: 0
+    position: sticky
+    top: 0
+    z-index: 1
+
+.v-list__overlay
+  background-color: currentColor
+  border-radius: inherit
+  bottom: 0
+  left: 0
+  opacity: 0
+  pointer-events: none
+  position: absolute
+  right: 0
+  top: 0
+  transition: opacity 0.2s ease-in-out

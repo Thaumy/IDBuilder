@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VBanner/VBannerContent.ts"],"names":["createSimpleFunctional","VBannerContent"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,cAAc,GAAGD,sBAAsB,CAAC,kBAAD,CAA7C","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VBannerContent = createSimpleFunctional('v-banner-content')\n"],"file":"VBannerContent.mjs"}

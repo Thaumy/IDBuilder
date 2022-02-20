@@ -1,0 +1,33 @@
+.v-btn-group {
+  display: flex;
+}
+.v-btn-group > :first-child, .v-btn-group > :first-child > .v-field__control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.v-btn-group > :last-child, .v-btn-group > :last-child > .v-field__control {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.v-btn-group > :not(:first-child):not(:last-child), .v-btn-group > :not(:first-child):not(:last-child) > .v-field__control {
+  border-radius: 0;
+}
+.v-btn-group > .v-btn {
+  box-shadow: none;
+  height: auto;
+}
+.v-btn-group > .v-btn.v-btn--density-default {
+  min-height: calc(var(--v-btn-height) + 0px);
+}
+.v-btn-group > .v-btn.v-btn--density-comfortable {
+  min-height: calc(var(--v-btn-height) + -8px);
+}
+.v-btn-group > .v-btn.v-btn--density-compact {
+  min-height: calc(var(--v-btn-height) + -12px);
+}
+.v-btn-group > .v-btn + .v-btn {
+  border-left: thin solid rgba(var(--v-border-color), var(--v-border-opacity)) !important;
+}
+.v-btn-group > .v-btn + .v-btn.v-btn--variant-outlined {
+  border-left: 0 !important;
+}

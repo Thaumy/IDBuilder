@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VChip/index.ts"],"names":["VChip"],"mappings":"SAASA,K","sourcesContent":["export { VChip } from './VChip'\n"],"file":"index.mjs"}

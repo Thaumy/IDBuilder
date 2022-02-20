@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VCard/VCardImg.ts"],"names":["createSimpleFunctional","VCardImg"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,QAAQ,GAAGD,sBAAsB,CAAC,YAAD,CAAvC","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VCardImg = createSimpleFunctional('v-card-img')\n"],"file":"VCardImg.mjs"}

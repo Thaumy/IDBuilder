@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VChipGroup/index.ts"],"names":["VChipGroup"],"mappings":"OAAOA,U;AAEP,SAASA,UAAT;AACA,eAAeA,UAAf","sourcesContent":["import VChipGroup from './VChipGroup'\n\nexport { VChipGroup }\nexport default VChipGroup\n"],"file":"index.mjs"}

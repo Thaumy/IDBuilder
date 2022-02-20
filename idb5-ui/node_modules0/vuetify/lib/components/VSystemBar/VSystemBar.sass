@@ -1,0 +1,38 @@
+@forward './variables'
+@use '../../styles/tools'
+@use './variables' as *
+
+.v-system-bar
+  align-items: center
+  background: $system-bar-background
+  display: flex
+  flex: $system-bar-flex
+  font-size: $system-bar-font-size
+  font-weight: $system-bar-font-weight
+  height: $system-bar-height
+  justify-content: flex-end
+  padding: $system-bar-padding
+  position: relative
+
+  i
+    color: $system-bar-icon-color
+    font-size: $system-bar-icon-font-size
+
+  // Defaults missing in variables @include border($system-bar-query)
+  @include tools.elevation($system-bar-elevation)
+  @include tools.position($system-bar-positions)
+  @include tools.rounded($system-bar-border-radius)
+
+  text-align: end
+
+  &--lights-out
+    background: $system-bar-lights-out-background
+
+  &--rounded
+    @include tools.rounded($system-bar-rounded-border-radius)
+
+  &--window
+    height: $system-bar-window-height
+
+    i
+      font-size: $system-bar-window-icon-font-size

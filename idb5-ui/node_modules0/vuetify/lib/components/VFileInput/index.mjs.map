@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VFileInput/index.ts"],"names":["VFileInput"],"mappings":"SAASA,U","sourcesContent":["export { VFileInput } from './VFileInput'\n"],"file":"index.mjs"}

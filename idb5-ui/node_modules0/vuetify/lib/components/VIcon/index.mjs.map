@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VIcon/index.ts"],"names":["VIcon","VComponentIcon","VSvgIcon","VLigatureIcon","VClassIcon"],"mappings":"SAASA,K;SAEPC,c,EACAC,Q,EACAC,a,EACAC,U","sourcesContent":["export { VIcon } from './VIcon'\nexport {\n  VComponentIcon,\n  VSvgIcon,\n  VLigatureIcon,\n  VClassIcon,\n} from '@/composables/icons'\n"],"file":"index.mjs"}

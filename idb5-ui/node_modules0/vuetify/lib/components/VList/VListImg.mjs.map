@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VList/VListImg.ts"],"names":["createSimpleFunctional","VListImg"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,QAAQ,GAAGD,sBAAsB,CAAC,YAAD,CAAvC","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VListImg = createSimpleFunctional('v-list-img')\n"],"file":"VListImg.mjs"}

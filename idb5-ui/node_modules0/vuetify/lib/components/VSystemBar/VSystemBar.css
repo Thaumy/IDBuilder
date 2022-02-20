@@ -1,0 +1,37 @@
+.v-system-bar {
+  align-items: center;
+  background: rgba(var(--v-theme-on-background), 0.02);
+  display: flex;
+  flex: 1 1 auto;
+  font-size: 1rem;
+  font-weight: 400;
+  height: 24px;
+  justify-content: flex-end;
+  padding: 0 8px;
+  position: relative;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+  text-align: end;
+}
+.v-system-bar i {
+  color: rgba(var(--v-theme-on-background), 0.5);
+  font-size: 16px;
+}
+.v-system-bar--absolute {
+  position: absolute;
+}
+.v-system-bar--fixed {
+  position: fixed;
+}
+.v-system-bar--lights-out {
+  background: rgba(var(--v-theme-background), 0.7);
+}
+.v-system-bar--rounded {
+  border-radius: 0;
+}
+.v-system-bar--window {
+  height: 32px;
+}
+.v-system-bar--window i {
+  font-size: 20px;
+}

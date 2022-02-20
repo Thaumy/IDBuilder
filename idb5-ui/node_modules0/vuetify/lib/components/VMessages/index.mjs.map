@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VMessages/index.ts"],"names":["VMessages"],"mappings":"SAASA,S","sourcesContent":["export { VMessages } from './VMessages'\n"],"file":"index.mjs"}

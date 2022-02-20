@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VOverlay/index.ts"],"names":["VOverlay"],"mappings":"SAASA,Q","sourcesContent":["export { VOverlay } from './VOverlay'\n"],"file":"index.mjs"}

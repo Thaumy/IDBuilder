@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VCode/index.ts"],"names":["createSimpleFunctional","VCode"],"mappings":"AAAA;SAESA,sB;AAET,OAAO,MAAMC,KAAK,GAAGD,sBAAsB,CAAC,QAAD,CAApC","sourcesContent":["import './VCode.sass'\n\nimport { createSimpleFunctional } from '@/util'\n\nexport const VCode = createSimpleFunctional('v-code')\n"],"file":"index.mjs"}
