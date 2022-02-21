@@ -28,6 +28,8 @@ async function createWindow() {
         }
     })
 
+    win.webContents.openDevTools()
+
     if (process.env.WEBPACK_DEV_SERVER_URL) {
         // Load the url of the dev server if in development mode
         await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
@@ -83,3 +85,7 @@ if (isDevelopment) {
         })
     }
 }
+
+//启动idb5-server
+require('child_process')
+    .exec('./idb5-server', {cwd: './server'})

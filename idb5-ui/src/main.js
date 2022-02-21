@@ -1,13 +1,16 @@
 import {createApp} from 'vue'
 import App from './App.vue'
-import router from './router'
+
 import vuetify from './plugins/vuetify'
-import {loadFonts} from './plugins/webfontloader'
+import router from './router'
 
 import './assets/css/html.css'
 import './assets/css/scrollbar.css'
 
+import {loadFonts} from './plugins/webfontloader'
 loadFonts()
+
+//import '@mdi/font/scss/materialdesignicons.scss'
 
 let app = createApp(App)
 
@@ -24,22 +27,23 @@ function resumeWs() {
 
         setTimeout(() => {
             if (!isConnLost())
-                console.log("WebSocket connection resumed.")
-        }, 1000)//一秒后检测状态
-
+                console.log("connection resumed.")
+            else
+                console.log("resume failed.")
+        }, 3000)//一段时间后检测状态
     }
 
     //每过一段时间检查并恢复连接
     setTimeout(() => {
         resumeWs()
-    }, 3000)
+    }, 5000)
 }
 
 app.config.globalProperties.$ws = new WebSocket(wsUrl)
 
 setTimeout(() => {
     resumeWs()
-}, 3000)
+}, 5000)
 
 app.use(router)
     .use(vuetify)

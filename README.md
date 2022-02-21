@@ -34,9 +34,12 @@
 
 ## 注意事项
 
-需要.NET6运行时  
-需要[WebSocketer](https://github.com/Thaumy/WebsSocketer)依赖  
-默认占用20222端口用作前后端通信
+idb5-server:
+
+* 需要.NET6运行时  
+* 需要[WebSocketer](https://github.com/Thaumy/WebsSocketer)依赖  
+* 需要[palaflake](https://github.com/Thaumy/WebsSocketer)依赖  
+* 默认占用20222端口用作前后端通信
 
 ## 旧版本注意事项
 
