@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VPagination/index.ts"],"names":["VPagination","VPaginationBtn"],"mappings":"SAASA,W;SACAC,c","sourcesContent":["export { VPagination } from './VPagination'\nexport { VPaginationBtn } from './VPaginationBtn'\n"],"file":"index.mjs"}

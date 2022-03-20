@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VKbd/index.ts"],"names":["createSimpleFunctional","VKbd"],"mappings":"AAAA;SAESA,sB;AAET,OAAO,MAAMC,IAAI,GAAGD,sBAAsB,CAAC,OAAD,CAAnC","sourcesContent":["import './VKbd.sass'\n\nimport { createSimpleFunctional } from '@/util'\n\nexport const VKbd = createSimpleFunctional('v-kbd')\n"],"file":"index.mjs"}

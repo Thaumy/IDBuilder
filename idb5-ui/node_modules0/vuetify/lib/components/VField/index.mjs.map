@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VField/index.ts"],"names":["VField","VFieldLabel"],"mappings":"SAASA,M;SACAC,W","sourcesContent":["export { VField } from './VField'\nexport { VFieldLabel } from './VFieldLabel'\n"],"file":"index.mjs"}

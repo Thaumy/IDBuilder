@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VItemGroup/index.ts"],"names":["VItemGroup","VItem"],"mappings":"SAASA,U;SACAC,K","sourcesContent":["export { VItemGroup } from './VItemGroup'\nexport { VItem } from './VItem'\n"],"file":"index.mjs"}

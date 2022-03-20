@@ -1,0 +1,30 @@
+.v-bottom-navigation {
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+  position: fixed;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: rgba(var(--v-border-color), var(--v-border-opacity));
+  border-style: solid;
+  border-width: 0;
+  background: rgb(var(--v-theme-surface));
+  color: rgb(var(--v-theme-on-surface));
+}
+.v-bottom-navigation--border {
+  border-width: thin;
+  box-shadow: none;
+}
+.v-bottom-navigation--is-active {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.v-bottom-navigation--absolute {
+  position: absolute;
+}
+
+.v-bottom-navigation__content {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  transition: inherit;
+  width: 100%;
+}

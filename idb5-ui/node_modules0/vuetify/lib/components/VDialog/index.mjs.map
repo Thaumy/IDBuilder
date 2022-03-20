@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VDialog/index.ts"],"names":["VDialog"],"mappings":"SAASA,O","sourcesContent":["export { VDialog } from './VDialog'\n"],"file":"index.mjs"}

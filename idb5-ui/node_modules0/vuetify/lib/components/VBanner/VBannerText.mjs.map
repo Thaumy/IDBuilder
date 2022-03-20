@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VBanner/VBannerText.ts"],"names":["createSimpleFunctional","VBannerText"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,WAAW,GAAGD,sBAAsB,CAAC,eAAD,CAA1C","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VBannerText = createSimpleFunctional('v-banner-text')\n"],"file":"VBannerText.mjs"}

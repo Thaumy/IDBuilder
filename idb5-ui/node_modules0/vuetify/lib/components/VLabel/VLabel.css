@@ -1,0 +1,18 @@
+.v-label {
+  align-items: center;
+  color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  letter-spacing: 0.009375em;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.v-label--disabled {
+  color: rgba(var(--v-theme-on-surface), var(--v-disabled-opacity));
+}
+.v-label--error {
+  color: rgb(var(--v-theme-error));
+}

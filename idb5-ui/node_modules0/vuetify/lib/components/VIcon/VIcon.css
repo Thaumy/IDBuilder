@@ -1,0 +1,54 @@
+.v-icon {
+  align-items: center;
+  display: inline-flex;
+  font-feature-settings: "liga";
+  height: 1em;
+  justify-content: center;
+  letter-spacing: normal;
+  line-height: 1;
+  position: relative;
+  text-indent: 0;
+  user-select: none;
+  vertical-align: middle;
+  width: 1em;
+}
+.v-icon--left {
+  margin-inline-end: 8px;
+}
+.v-icon--right {
+  margin-inline-start: 8px;
+}
+.v-icon--size-x-small {
+  font-size: 1em;
+}
+.v-icon--size-small {
+  font-size: 1.25em;
+}
+.v-icon--size-default {
+  font-size: 1.5em;
+}
+.v-icon--size-large {
+  font-size: 1.75em;
+}
+.v-icon--size-x-large {
+  font-size: 2em;
+}
+
+.v-icon__svg {
+  fill: currentColor;
+}
+
+.v-bottom-navigation .v-btn:not(.v-btn--icon):not(.v-btn--stacked) .v-icon--size-default {
+  font-size: 24px;
+}
+.v-bottom-navigation:not(.v-bottom-navigation--horizontal) .v-btn:not(.v-btn--icon):not(.v-btn--stacked) .v-icon--size-default {
+  margin: 0;
+}
+.v-btn:not(.v-btn--icon) .v-icon--left {
+  margin-inline-start: calc(var(--v-btn-height) / -9);
+  margin-inline-end: calc(var(--v-btn-height) / 4.5);
+}
+.v-btn:not(.v-btn--icon) .v-icon--right {
+  margin-inline-start: calc(var(--v-btn-height) / 4.5);
+  margin-inline-end: calc(var(--v-btn-height) / -9);
+}

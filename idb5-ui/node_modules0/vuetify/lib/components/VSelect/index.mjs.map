@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VSelect/index.ts"],"names":["VSelect"],"mappings":"OAAOA,O;AAEP,SAASA,OAAT;AACA,eAAeA,OAAf","sourcesContent":["import VSelect from './VSelect'\n\nexport { VSelect }\nexport default VSelect\n"],"file":"index.mjs"}

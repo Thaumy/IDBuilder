@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VAvatar/index.ts"],"names":["VAvatar"],"mappings":"SAASA,O","sourcesContent":["export { VAvatar } from './VAvatar'\n"],"file":"index.mjs"}

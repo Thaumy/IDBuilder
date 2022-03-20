@@ -1,0 +1,393 @@
+/* region INPUT */
+.v-field {
+  font-size: 16px;
+  letter-spacing: 0.009375em;
+  max-width: 100%;
+  --v-field-padding-before: 16px;
+  --v-field-padding-after: 16px;
+}
+.v-field .v-field__input {
+  opacity: var(--v-high-emphasis-opacity);
+  width: 100%;
+  height: 100%;
+  padding-inline-start: var(--v-field-padding-before);
+  padding-inline-end: var(--v-field-padding-after);
+  display: flex;
+  align-items: center;
+}
+.v-field .v-field__input:focus, .v-field .v-field__input:active {
+  outline: none;
+}
+.v-field .v-field__input:invalid {
+  box-shadow: none;
+}
+.v-field--variant-plain, .v-field--variant-underlined {
+  --v-field-padding-before: 0;
+  --v-field-padding-after: 0;
+}
+.v-field--prepended {
+  --v-field-padding-before: 6px;
+}
+.v-field--appended {
+  --v-field-padding-after: 6px;
+}
+.v-field.v-field--variant-contained, .v-field.v-field--variant-filled {
+  --v-field-padding-top: 21px;
+  --v-field-padding-bottom: 6px;
+}
+.v-field.v-field--variant-contained.v-field--single-line, .v-field.v-field--variant-filled.v-field--single-line {
+  --v-field-padding-top: 0;
+  --v-field-padding-bottom: 0;
+}
+.v-field.v-field--variant-plain, .v-field.v-field--variant-underlined {
+  --v-field-padding-top: 16px;
+  --v-field-padding-bottom: 8px;
+}
+.v-input--density-default.v-field.v-field--variant-plain, .v-input--density-default.v-field.v-field--variant-underlined {
+  --v-field-padding-top: 30px;
+}
+
+.v-input--density-comfortable.v-field.v-field--variant-plain, .v-input--density-comfortable.v-field.v-field--variant-underlined {
+  --v-field-padding-top: 24px;
+}
+
+.v-input--density-compact.v-field.v-field--variant-plain, .v-input--density-compact.v-field.v-field--variant-underlined {
+  --v-field-padding-top: 18px;
+}
+
+.v-field--variant-filled.v-field--focused .v-label, .v-field--variant-outlined.v-field--focused .v-label, .v-field--variant-underlined.v-field--focused .v-label {
+  color: inherit;
+}
+
+/* endregion */
+/* region CONTROL */
+.v-field__control {
+  align-items: center;
+  border-radius: 4px;
+  contain: layout;
+  display: flex;
+  flex: 1 0;
+  grid-area: control;
+  height: var(--v-input-control-height);
+  position: relative;
+}
+.v-field--prepended .v-field__control {
+  padding-inline-start: 12px;
+}
+.v-field--appended .v-field__control {
+  padding-inline-end: 12px;
+}
+.v-field--variant-contained .v-field__control {
+  background: rgb(var(--v-theme-surface));
+  border-color: transparent;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+.v-field--variant-contained .v-field__control, .v-field--variant-filled .v-field__control {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.v-field--variant-plain .v-field__control, .v-field--variant-underlined .v-field__control {
+  border-radius: 0;
+  padding: 0;
+}
+
+/* endregion */
+/* region FIELD */
+.v-field__field {
+  align-items: center;
+  display: flex;
+  flex: 1 0;
+  height: 100%;
+  position: relative;
+}
+.v-field__field .v-field__input {
+  letter-spacing: 0.009375em;
+  padding-top: var(--v-field-padding-top, 0);
+  padding-bottom: var(--v-field-padding-bottom, 0);
+}
+
+/* endregion */
+/* region AFFIXES */
+.v-field__prepend-inner,
+.v-field__append-inner,
+.v-field__clearable,
+.v-field .v-input__prepend,
+.v-field .v-input__append {
+  align-items: center;
+  display: flex;
+}
+
+.v-field--variant-plain .v-field__prepend-inner, .v-field--variant-underlined .v-field__prepend-inner,
+.v-field--variant-plain .v-field__append-inner,
+.v-field--variant-underlined .v-field__append-inner,
+.v-field--variant-plain .v-input__prepend,
+.v-field--variant-underlined .v-input__prepend,
+.v-field--variant-plain .v-input__append,
+.v-field--variant-underlined .v-input__append {
+  align-self: flex-end;
+}
+.v-input--density-default.v-field--variant-plain .v-field__prepend-inner, .v-input--density-default.v-field--variant-underlined .v-field__prepend-inner, .v-input--density-default.v-field--variant-plain .v-field__append-inner, .v-input--density-default.v-field--variant-underlined .v-field__append-inner, .v-input--density-default.v-field--variant-plain .v-input__prepend, .v-input--density-default.v-field--variant-underlined .v-input__prepend, .v-input--density-default.v-field--variant-plain .v-input__append, .v-input--density-default.v-field--variant-underlined .v-input__append {
+  margin-bottom: 4px;
+}
+
+.v-input--density-comfortable.v-field--variant-plain .v-field__prepend-inner, .v-input--density-comfortable.v-field--variant-underlined .v-field__prepend-inner, .v-input--density-comfortable.v-field--variant-plain .v-field__append-inner, .v-input--density-comfortable.v-field--variant-underlined .v-field__append-inner, .v-input--density-comfortable.v-field--variant-plain .v-input__prepend, .v-input--density-comfortable.v-field--variant-underlined .v-input__prepend, .v-input--density-comfortable.v-field--variant-plain .v-input__append, .v-input--density-comfortable.v-field--variant-underlined .v-input__append {
+  margin-bottom: 3px;
+}
+
+.v-input--density-compact.v-field--variant-plain .v-field__prepend-inner, .v-input--density-compact.v-field--variant-underlined .v-field__prepend-inner, .v-input--density-compact.v-field--variant-plain .v-field__append-inner, .v-input--density-compact.v-field--variant-underlined .v-field__append-inner, .v-input--density-compact.v-field--variant-plain .v-input__prepend, .v-input--density-compact.v-field--variant-underlined .v-input__prepend, .v-input--density-compact.v-field--variant-plain .v-input__append, .v-input--density-compact.v-field--variant-underlined .v-input__append {
+  margin-bottom: 2px;
+}
+
+.v-field--variant-plain .v-field .v-input__prepend, .v-field--variant-underlined .v-field .v-input__prepend,
+.v-field--variant-plain .v-field .v-input__append,
+.v-field--variant-underlined .v-field .v-input__append {
+  align-self: flex-end;
+}
+
+.v-field__clearable {
+  cursor: pointer;
+  opacity: 0;
+  margin-inline-end: 4px;
+  transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: opacity, transform, width;
+}
+.v-field--focused .v-field__clearable, .v-field__control:hover .v-field__clearable, .v-field--persistent-clear .v-field__clearable {
+  opacity: 1;
+}
+
+/* endregion */
+/* region LABEL */
+.v-field-label {
+  contain: layout paint;
+  margin-inline-end: var(--v-field-padding-after);
+  margin-inline-start: var(--v-field-padding-before);
+  max-width: calc(100% - var(--v-field-padding-before) - var(--v-field-padding-after));
+  pointer-events: none;
+  position: absolute;
+  transform-origin: left center;
+  transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: opacity, transform;
+}
+.v-field--active .v-field-label {
+  visibility: hidden;
+}
+.v-input--disabled .v-field-label, .v-input--error .v-field-label {
+  color: inherit;
+}
+.v-input--density-default.v-field--variant-plain .v-field-label, .v-input--density-default.v-field--variant-underlined .v-field-label {
+  bottom: 4px;
+}
+
+.v-input--density-comfortable.v-field--variant-plain .v-field-label, .v-input--density-comfortable.v-field--variant-underlined .v-field-label {
+  bottom: 3px;
+}
+
+.v-input--density-compact.v-field--variant-plain .v-field-label, .v-input--density-compact.v-field--variant-underlined .v-field-label {
+  bottom: 2px;
+}
+
+.v-field-label--floating {
+  --v-field-label-scale: 0.75em;
+  font-size: var(--v-field-label-scale);
+  visibility: hidden;
+  max-width: 100%;
+}
+.v-field.v-field--active .v-field-label--floating {
+  visibility: visible;
+}
+.v-input--density-default.v-field--variant-contained .v-field-label--floating, .v-input--density-default.v-field--variant-filled .v-field-label--floating {
+  top: 7px;
+}
+
+.v-input--density-comfortable.v-field--variant-contained .v-field-label--floating, .v-input--density-comfortable.v-field--variant-filled .v-field-label--floating {
+  top: 5px;
+}
+
+.v-input--density-compact.v-field--variant-contained .v-field-label--floating, .v-input--density-compact.v-field--variant-filled .v-field-label--floating {
+  top: 3px;
+}
+
+.v-field--variant-plain .v-field-label--floating, .v-field--variant-underlined .v-field-label--floating {
+  transform: translateY(-24px);
+  margin: 0;
+}
+.v-field--variant-outlined .v-field-label--floating {
+  transform: translateY(-50%);
+  transform-origin: center;
+  position: static;
+  margin: 0 4px;
+}
+
+/* endregion */
+/* region OUTLINE */
+.v-field__outline {
+  --v-field-border-width: 1px;
+  --v-field-border-opacity: 0.38;
+  align-items: stretch;
+  contain: layout;
+  display: flex;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+.v-field__control:hover .v-field__outline {
+  --v-field-border-opacity: var(--v-high-emphasis-opacity);
+}
+.v-field.v-field--focused .v-field__outline, .v-field.v-input--error .v-field__outline {
+  --v-field-border-opacity: 1;
+}
+.v-field--variant-outlined.v-field--focused .v-field__outline {
+  --v-field-border-width: 2px;
+}
+.v-field--variant-filled .v-field__outline::before, .v-field--variant-underlined .v-field__outline::before {
+  border-style: solid;
+  border-width: 0 0 var(--v-field-border-width);
+  opacity: var(--v-field-border-opacity);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.v-field--variant-filled .v-field__outline::after, .v-field--variant-underlined .v-field__outline::after {
+  border-color: currentColor;
+  border-style: solid;
+  border-width: 0 0 2px;
+  transform: scaleX(0);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.v-field--focused.v-field--variant-filled .v-field__outline::after, .v-field--focused.v-field--variant-underlined .v-field__outline::after {
+  transform: scaleX(1);
+}
+
+.v-field--variant-outlined .v-field__outline {
+  border-radius: inherit;
+}
+.v-field--variant-outlined .v-field__outline__start, .v-field--variant-outlined .v-field__outline__notch::before, .v-field--variant-outlined .v-field__outline__notch::after, .v-field--variant-outlined .v-field__outline__end {
+  border: 0 solid currentColor;
+  opacity: var(--v-field-border-opacity);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.v-field--variant-outlined .v-field__outline__start {
+  flex: 0 0 12px;
+  border-top-width: var(--v-field-border-width);
+  border-bottom-width: var(--v-field-border-width);
+  border-inline-start-width: var(--v-field-border-width);
+}
+.v-field--variant-outlined .v-field__outline__start.v-locale--is-ltr, .v-locale--is-ltr .v-field--variant-outlined .v-field__outline__start {
+  border-radius: 4px 0 0 4px;
+}
+.v-field--variant-outlined .v-field__outline__start.v-locale--is-rtl, .v-locale--is-rtl .v-field--variant-outlined .v-field__outline__start {
+  border-radius: 0 4px 4px 0;
+}
+.v-field--variant-outlined .v-field__outline__notch {
+  flex: none;
+  position: relative;
+  border-width: 0 0 var(--v-field-border-width);
+}
+.v-field--variant-outlined .v-field__outline__notch::before, .v-field--variant-outlined .v-field__outline__notch::after {
+  opacity: var(--v-field-border-opacity);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.v-field--variant-outlined .v-field__outline__notch::before {
+  border-width: var(--v-field-border-width) 0 0;
+}
+.v-field--variant-outlined .v-field__outline__notch::after {
+  bottom: 0;
+  border-width: 0 0 var(--v-field-border-width);
+}
+.v-field--active.v-field--variant-outlined .v-field__outline__notch::before {
+  opacity: 0;
+}
+
+.v-field--variant-outlined .v-field__outline__end {
+  flex: 1;
+  border-top-width: var(--v-field-border-width);
+  border-bottom-width: var(--v-field-border-width);
+  border-inline-end-width: var(--v-field-border-width);
+}
+.v-field--variant-outlined .v-field__outline__end.v-locale--is-ltr, .v-locale--is-ltr .v-field--variant-outlined .v-field__outline__end {
+  border-radius: 0 4px 4px 0;
+}
+.v-field--variant-outlined .v-field__outline__end.v-locale--is-rtl, .v-locale--is-rtl .v-field--variant-outlined .v-field__outline__end {
+  border-radius: 4px 0 0 4px;
+}
+
+/* endregion */
+/* region DETAILS */
+.v-field--variant-plain .v-input__details, .v-field--variant-underlined .v-input__details {
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+/* endregion */
+/* region LOADER */
+.v-field__loader {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+/* endregion */
+/* region OVERLAY */
+.v-field--variant-filled .v-field__overlay {
+  background-color: rgb(var(--v-theme-on-surface));
+  border-radius: inherit;
+  opacity: 0.04;
+  pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.v-field--variant-filled.v-field--has-background .v-field__overlay {
+  opacity: 0;
+}
+.v-field--variant-filled .v-field__control:hover .v-field__overlay {
+  opacity: calc(0.08 * var(--v-theme-overlay-multiplier));
+}
+.v-field--variant-filled.v-field.v-field--focused .v-field__overlay {
+  opacity: calc(0.16 * var(--v-theme-overlay-multiplier));
+}
+
+/* endregion */
+/* region MODIFIERS */
+.v-field--reverse .v-field__input.v-locale--is-ltr, .v-locale--is-ltr .v-field--reverse .v-field__input {
+  text-align: right;
+}
+.v-field--reverse .v-field__input.v-locale--is-rtl, .v-locale--is-rtl .v-field--reverse .v-field__input {
+  text-align: left;
+}
+
+.v-field--variant-filled.v-input--disabled .v-field__outline::before,
+.v-field--variant-underlined.v-input--disabled .v-field__outline::before {
+  border-image: repeating-linear-gradient(to right, rgba(var(--v-theme-on-surface), var(--v-disabled-opacity)) 0px, rgba(var(--v-theme-on-surface), var(--v-disabled-opacity)) 2px, transparent 2px, transparent 4px) 1 repeat;
+}
+
+.v-field--loading .v-field__outline::after,
+.v-field--loading .v-field__outline::before {
+  opacity: 0;
+}
+
+/* endregion */

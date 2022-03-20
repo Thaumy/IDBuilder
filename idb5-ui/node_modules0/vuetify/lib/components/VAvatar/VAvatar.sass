@@ -1,0 +1,37 @@
+@forward './variables'
+@use '../../styles/tools'
+@use './mixins' as *
+@use './variables' as *
+
+.v-avatar
+  align-items: center
+  border-radius: $avatar-border-radius
+  display: inline-flex
+  justify-content: center
+  line-height: $avatar-line-height
+  overflow: hidden
+  position: relative
+  text-align: center
+  vertical-align: $avatar-vertical-align
+
+  @include avatar-sizes($avatar-sizes)
+  @include avatar-density(('height', 'width'), $avatar-density)
+  @include tools.rounded($avatar-border-radius)
+
+  > *
+    border-radius: inherit
+    width: inherit
+    height: inherit
+
+  > .v-icon
+    font-size: var(--v-avatar-height)
+
+  &--rounded
+    +tools.rounded($avatar-rounded-border-radius)
+
+// VList
+.v-avatar
+  .v-list-item-avatar &
+    overflow: visible
+    height: inherit
+    width: inherit

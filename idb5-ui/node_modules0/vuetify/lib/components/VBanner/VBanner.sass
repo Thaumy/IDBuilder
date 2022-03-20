@@ -1,0 +1,113 @@
+@forward './variables'
+@use '../../styles/tools'
+@use './variables' as *
+
+.v-banner
+  $root: &
+
+  background: $banner-background
+  display: flex
+  flex-wrap: wrap
+  font-size: $banner-font-size
+  padding-bottom: $banner-padding-bottom
+  padding-inline-end: $banner-padding-end
+  padding-inline-start: $banner-padding-start
+  position: relative
+  width: $banner-width
+
+  @include tools.border($banner-border...)
+  @include tools.elevation($banner-elevation)
+  @include tools.position($banner-positions)
+  @include tools.rounded($banner-border-radius)
+  @include tools.theme($banner-theme...)
+
+  &--border
+    border-width: $banner-border-thin-width
+
+  &--mobile
+    align-items: center
+    padding-inline-end: $banner-mobile-padding-end
+    padding-inline-start: $banner-mobile-padding-start
+
+  &--rounded
+    @include tools.rounded($banner-rounded-border-radius)
+
+  @at-root
+    @include tools.density('v-banner', $banner-density) using ($modifier)
+      &.v-banner--one-line
+        padding-top: $banner-padding-top + $modifier
+
+      &.v-banner--two-line
+        padding-top: $banner-two-line-padding-top + $modifier
+
+      &.v-banner--three-line
+        padding-top: $banner-three-line-padding-top + $modifier
+
+  &--sticky
+    top: $banner-sticky-top
+
+.v-banner-actions
+  align-items: flex-end
+  display: flex
+  flex: 0 1
+  justify-content: flex-end
+
+  .v-banner--mobile &
+    flex: 1 0
+
+.v-banner-content
+  display: flex
+  flex: 1 1
+  min-width: 0
+  padding-inline-end: $banner-content-padding-end
+
+  .v-banner--mobile &
+    flex: 1 1 auto
+    padding-inline-end: $banner-mobile-content-padding-end
+
+  .v-banner--two-line &
+    margin-bottom: $banner-two-line-content-margin-bottom
+
+  .v-banner--three-line &
+    margin-bottom: $banner-three-line-content-margin-bottom
+
+.v-banner-avatar
+  align-self: flex-start
+  border-radius: $banner-avatar-border-radius
+  margin-inline-end: $banner-avatar-margin-end
+  margin-inline-start: $banner-avatar-margin-start
+  position: relative
+
+  &::after
+    background: currentColor
+    border-radius: inherit
+    bottom: 0
+    content: ''
+    left: 0
+    opacity: $banner-avatar-after-opacity
+    position: absolute
+    right: 0
+    top: 0
+
+  .v-banner--mobile &
+    margin-inline-end: $banner-mobile-avatar-margin-end
+
+  .v-banner--one-line &
+    align-self: center
+
+.v-banner-text
+  -webkit-box-orient: vertical
+  align-self: flex-start
+  color: $banner-text-color
+  display: -webkit-box
+  line-height: $banner-text-line-height
+  overflow: hidden
+
+  .v-banner--one-line &
+    align-self: center
+
+  .v-banner--two-line &
+    -webkit-line-clamp: 2
+
+  .v-banner--three-line &
+    -webkit-line-clamp: 3

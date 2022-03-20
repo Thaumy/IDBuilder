@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VList/VListItemHeader.ts"],"names":["createSimpleFunctional","VListItemHeader"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,eAAe,GAAGD,sBAAsB,CAAC,oBAAD,CAA9C","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VListItemHeader = createSimpleFunctional('v-list-item-header')\n"],"file":"VListItemHeader.mjs"}

@@ -1,0 +1,32 @@
+.v-textarea .v-field__input {
+  align-self: stretch;
+  flex: 1 1 auto;
+  outline: none;
+  mask-image: linear-gradient(to bottom, transparent, transparent calc(var(--v-field-padding-top, 0) / 1.25), black var(--v-field-padding-top, 0));
+}
+.v-input--density-default.v-textarea .v-field__input {
+  line-height: 1.75;
+}
+
+.v-input--density-comfortable.v-textarea .v-field__input {
+  line-height: 1.375;
+}
+
+.v-input--density-compact.v-textarea .v-field__input {
+  line-height: 1;
+}
+
+.v-textarea--auto-grow .v-field__input {
+  overflow: hidden;
+}
+.v-textarea--no-resize .v-field__input {
+  resize: none;
+}
+.v-textarea__sizer {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0 !important;
+  pointer-events: none;
+}

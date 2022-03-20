@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VCard/VCardTitle.ts"],"names":["createSimpleFunctional","VCardTitle"],"mappings":"SAASA,sB;AAET,OAAO,MAAMC,UAAU,GAAGD,sBAAsB,CAAC,cAAD,CAAzC","sourcesContent":["import { createSimpleFunctional } from '@/util'\n\nexport const VCardTitle = createSimpleFunctional('v-card-title')\n"],"file":"VCardTitle.mjs"}

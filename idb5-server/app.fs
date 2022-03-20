@@ -63,4 +63,4 @@ let f (ws: WebSocket) =
             let base64str = argv.[3]
             genEncodingViewData mode algh base64str |> ws.send
 
-listenWithTimeout 20222us f 12000 |> ignore
+listen 20222us f |> ignore

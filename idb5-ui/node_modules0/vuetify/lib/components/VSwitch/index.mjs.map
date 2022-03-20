@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VSwitch/index.ts"],"names":["VSwitch"],"mappings":"SAASA,O","sourcesContent":["export { VSwitch } from './VSwitch'\n"],"file":"index.mjs"}

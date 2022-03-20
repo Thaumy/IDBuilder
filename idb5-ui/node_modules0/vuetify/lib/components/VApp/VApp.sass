@@ -1,0 +1,25 @@
+.v-application
+  display: flex
+  background: rgb(var(--v-theme-background))
+  color: rgb(var(--v-theme-on-background))
+
+  a
+    cursor: pointer
+
+.v-application__wrap
+    flex: 1 1 auto
+    backface-visibility: hidden
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+    max-width: 100%
+    position: relative
+
+// Firefox overrides
+@-moz-document url-prefix()
+  @media print
+    .v-application
+      display: block
+
+      &__wrap
+        display: block

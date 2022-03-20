@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VFooter/index.ts"],"names":["VFooter"],"mappings":"SAASA,O","sourcesContent":["export { VFooter } from './VFooter'\n"],"file":"index.mjs"}

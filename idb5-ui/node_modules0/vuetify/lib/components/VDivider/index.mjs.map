@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/VDivider/index.ts"],"names":["VDivider"],"mappings":"SAASA,Q","sourcesContent":["export { VDivider } from './VDivider'\n"],"file":"index.mjs"}

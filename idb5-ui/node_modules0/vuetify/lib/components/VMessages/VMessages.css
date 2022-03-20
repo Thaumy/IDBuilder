@@ -1,0 +1,16 @@
+.v-messages {
+  color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+  flex: 1 1 auto;
+  font-size: 12px;
+  min-height: 14px;
+  min-width: 1px;
+  position: relative;
+}
+.v-messages__message {
+  line-height: 12px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  transition-duration: 150ms;
+}
