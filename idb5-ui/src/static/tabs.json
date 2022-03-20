@@ -1,0 +1,25 @@
+[{
+        "title": "ID",
+        "path": "/"
+    },
+    {
+        "title": "Time",
+        "path": "/time"
+    },
+    {
+        "title": "Hash",
+        "path": "/hash"
+    },
+    {
+        "title": "Crypto",
+        "path": "/crypto"
+    },
+    {
+        "title": "Encoding",
+        "path": "/encoding"
+    },
+    {
+        "title": "About",
+        "path": "/about"
+    }
+]
