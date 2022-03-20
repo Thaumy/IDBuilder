@@ -7,11 +7,6 @@ import {loadFonts} from './plugins/webfontloader'
 import './assets/css/html.css'
 import './assets/css/scrollbar.css'
 
-<<<<<<< Updated upstream
-=======
-import {loadFonts} from './plugins/webfontloader'
-
->>>>>>> Stashed changes
 loadFonts()
 
 let app = createApp(App)

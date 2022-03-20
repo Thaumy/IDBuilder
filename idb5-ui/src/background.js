@@ -28,17 +28,6 @@ async function createWindow() {
     }
   })
 
-<<<<<<< Updated upstream
-    if (process.env.WEBPACK_DEV_SERVER_URL) {
-        // Load the url of the dev server if in development mode
-        await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-        if (!process.env.IS_TEST) win.webContents.openDevTools()
-    } else {
-        createProtocol('app')
-        // Load the index.html when not in development
-        win.loadURL('app://./index.html')
-    }
-=======
   //win.webContents.openDevTools()
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -50,7 +39,7 @@ async function createWindow() {
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
->>>>>>> Stashed changes
+
 }
 
 // Quit when all windows are closed.
@@ -97,12 +86,12 @@ if (isDevelopment) {
     })
   }
 }
-<<<<<<< Updated upstream
-=======
+
+
+//启动idb5-server
 
 let runPath = app.getPath("exe").substring(0, app.getPath("exe").length - app.getName().length)
 
-//启动idb5-server
 require('child_process')
     .exec('./idb5-server', {cwd: `${runPath}/server`})
->>>>>>> Stashed changes
+
