@@ -3,6 +3,7 @@ module idb5_server.CryptoView
 open System
 open System.Text
 open System.Security.Cryptography
+open fsharper.op.Fmt
 
 let getBytes (str: string) = Encoding.UTF8.GetBytes str
 
@@ -70,9 +71,9 @@ let getCryptoViewData mode bitOrText key paddingMode =
                 bits |> Convert.ToUInt16 |> genRsaKeyPair
 
             $"{{
-            \"priKey\":\"{keyPair.priKey.base64}\",
-            \"pubKey\":\"{keyPair.pubKey.base64}\"
-          }}"
+            \"priKey\":\"{keyPair.priKey.base64}\",\
+            \"pubKey\":\"{keyPair.pubKey.base64}\"\
+            }}"
         | "encrypt", plain, pubKey, "pkcs1_padding" ->
             let cipher =
                 plain |> encrypt pubKey RSAEncryptionPadding.Pkcs1
@@ -101,10 +102,11 @@ let getCryptoViewData mode bitOrText key paddingMode =
             $"{{\"result\":\"{plain.base64}\"}}"
         | _ -> ""
     with
-    | _ ->
+    | e ->
+        println e
         //ERR in base64 is RVJS
-        """{
-                "priKey":"RVJS",\
-                "pubKey":"RVJS",\
-                "result":"RVJS"\
-           }"""
+        "{
+            \"priKey\":\"RVJS\",\
+            \"pubKey\":\"RVJS\",\
+            \"result\":\"RVJS\"\
+         }"

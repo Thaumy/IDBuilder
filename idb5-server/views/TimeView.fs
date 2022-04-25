@@ -24,6 +24,6 @@ let genTimeViewData utc_plus =
 
     $"{{\
             \"sec_timestamp\":\"{sec_timestamp}\",\
-       \"mili_timestamp\":\"{milis_timestamp}\",\
-             \"db_time_format\":\"{db_time_format}\"\
+            \"mili_timestamp\":\"{milis_timestamp}\",\
+            \"db_time_format\":\"{db_time_format}\"\
     }}"

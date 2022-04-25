@@ -53,24 +53,20 @@ export default {
   },
   methods: {
     src_to_dst() {
-      let base64str = btoa(this.src)
-
       this.$ws.onmessage = (msg) => {
         console.log(msg.data)
         this.dst = JSON.parse(msg.data).result
       }
 
-      this.$ws.send(`get_encoding_view_data encode ${this.algh} ${base64str}`)
+      this.$ws.send(`get_encoding_view_data encode ${this.algh} ${this.$utf8_btoa(this.src)}`)
     },
     dst_to_src() {
-      let base64str = btoa(this.dst)
-
       this.$ws.onmessage = (msg) => {
         console.log(msg.data)
         this.src = JSON.parse(msg.data).result
       }
 
-      this.$ws.send(`get_encoding_view_data decode ${this.algh} ${base64str}`)
+      this.$ws.send(`get_encoding_view_data decode ${this.algh} ${this.$utf8_btoa(this.dst)}`)
     }
   }
 };
