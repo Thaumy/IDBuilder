@@ -58,15 +58,13 @@ export default {
       this.hash = this.data.hash
     },
     regen_btn() {
-      let base64str = btoa(this.text)
-
       this.$ws.onmessage = (msg) => {
         console.log(msg.data)
         this.data = JSON.parse(msg.data)
         this.render()
       }
 
-      this.$ws.send(`get_hash_view_data ${this.hash_algh} ${base64str}`)
+      this.$ws.send(`get_hash_view_data ${this.hash_algh} ${this.$utf8_btoa(this.text)}`)
     },
   }
 };

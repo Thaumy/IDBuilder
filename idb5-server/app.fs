@@ -4,6 +4,7 @@ open System
 open System.Text
 open WebSocketer
 open WebSocketer.Server
+open fsharper.op.Fmt
 
 open idb5_server.IdView
 open idb5_server.TimeView
@@ -11,7 +12,7 @@ open idb5_server.HashView
 open idb5_server.CryptoView
 open idb5_server.EncodingView
 
-Console.WriteLine "Welcome to IDBuilder server."
+println "Welcome to IDBuilder server."
 
 
 let decodeBase64 (base64: string) =
@@ -20,12 +21,12 @@ let decodeBase64 (base64: string) =
     |> Encoding.UTF8.GetString
 
 let f (ws: WebSocket) =
-    Console.WriteLine "New client online."
+    println "New client online."
 
     while true do
-        Console.WriteLine "Waiting for request."
+        println "Waiting for request..."
         let msg = ws.recv ()
-        Console.WriteLine msg
+        println msg
 
         let argv = msg.Split(" ")
 
@@ -55,7 +56,7 @@ let f (ws: WebSocket) =
                 getCryptoViewData mode bitsOrText key paddingMode
                 |> ws.send
             with
-            | e -> Console.WriteLine(e.ToString())
+            | e -> println (e.ToString())
 
         if msg.StartsWith "get_encoding_view_data" then
             let mode = argv.[1]

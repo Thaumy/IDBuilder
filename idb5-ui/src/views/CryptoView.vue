@@ -91,19 +91,19 @@ export default {
     encrypt() {
       this.$ws.onmessage = (msg) => {
         console.log(msg.data)
-        this.cipherText = atob(JSON.parse(msg.data).result)
+        this.cipherText = this.$utf8_atob(JSON.parse(msg.data).result)
       }
 
-      this.$ws.send(`get_crypto_view_data encrypt ${btoa(this.plainText)} ${btoa(this.pubKey)} ${this.paddingMode}`)
+      this.$ws.send(`get_crypto_view_data encrypt ${this.$utf8_btoa(this.plainText)} ${btoa(this.pubKey)} ${this.paddingMode}`)
     }
     ,
     decrypt() {
       this.$ws.onmessage = (msg) => {
         console.log(msg.data)
-        this.plainText = atob(JSON.parse(msg.data).result)
+        this.plainText = this.$utf8_atob(JSON.parse(msg.data).result)
       }
 
-      this.$ws.send(`get_crypto_view_data decrypt ${btoa(this.cipherText)} ${btoa(this.priKey)} ${this.paddingMode}`)
+      this.$ws.send(`get_crypto_view_data decrypt ${this.$utf8_btoa(this.cipherText)} ${btoa(this.priKey)} ${this.paddingMode}`)
     },
 
   },

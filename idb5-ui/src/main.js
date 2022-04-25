@@ -35,7 +35,23 @@ function resumeWs() {
     }, 3000)
 }
 
+//全局websocket
 app.config.globalProperties.$ws = new WebSocket(wsUrl)
+
+//支持utf8的base64转换
+{
+    app.config.globalProperties.$utf8_btoa = (s) =>
+        btoa(encodeURIComponent(s).replace(/%([0-9A-F]{2})/g,
+            function toSolidBytes(match, p1) {
+                return String.fromCharCode('0x' + p1);
+            }))
+
+    app.config.globalProperties.$utf8_atob = (s) =>
+        decodeURIComponent(atob(s).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''))
+}
+
 
 setTimeout(() => {
     resumeWs()
