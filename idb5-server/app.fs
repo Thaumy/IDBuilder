@@ -1,8 +1,6 @@
-// For more information see https://aka.ms/fsharp-console-apps
-
 open System
 open System.Text
-open WebSocketer
+open WebSocketer.typ
 open WebSocketer.Server
 
 open idb5_server.IdView
@@ -12,7 +10,6 @@ open idb5_server.CryptoView
 open idb5_server.EncodingView
 
 Console.WriteLine "Welcome to IDBuilder server."
-
 
 let decodeBase64 (base64: string) =
     base64
@@ -30,8 +27,11 @@ let f (ws: WebSocket) =
         let argv = msg.Split(" ")
 
         if msg.StartsWith "get_id_view_data" then
-            let palaflake_machine_id = argv.[1] |> Convert.ToByte
-            let palaflake_start_year = argv.[2] |> Convert.ToUInt16
+            let palaflake_machine_id =
+                argv.[1] |> Convert.ToByte
+
+            let palaflake_start_year =
+                argv.[2] |> Convert.ToUInt16
 
             genIdViewData palaflake_machine_id palaflake_start_year
             |> ws.send

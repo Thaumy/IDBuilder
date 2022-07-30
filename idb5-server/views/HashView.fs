@@ -5,7 +5,6 @@ open System.Text
 open System.Security.Cryptography
 open Microsoft.IdentityModel.Tokens
 
-
 type private Object with
     /// 转换到指定哈希算法的字符串
     member self.hash(hasher: HashAlgorithm) =
@@ -28,8 +27,10 @@ type private Object with
     member self.md5 = MD5.Create() |> self.hash
     /// 转换到 sha1 字符串
     member self.sha1 = SHA1.Create() |> self.hash
+
     /// 转换到 sha256 字符串
-    member self.sha256 = SHA256.Create() |> self.hash
+    member self.sha256 =
+        SHA256.Create() |> self.hash
 
 let getBytes (str: string) = Encoding.UTF8.GetBytes str
 
