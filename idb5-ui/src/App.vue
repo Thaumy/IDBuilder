@@ -1,5 +1,5 @@
 <template>
-  <v-app style="height: 1000px;">
+  <v-app style="height: 1000px">
     <v-item-group mandatory selected-class="bg-primary">
       <v-row style="margin: 0">
         <v-col

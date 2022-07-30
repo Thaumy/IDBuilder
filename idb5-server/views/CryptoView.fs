@@ -3,7 +3,6 @@ module idb5_server.CryptoView
 open System
 open System.Text
 open System.Security.Cryptography
-open fsharper.op.Fmt
 
 let getBytes (str: string) = Encoding.UTF8.GetBytes str
 
@@ -11,8 +10,7 @@ type String with
     /// 转换到16进制字符串
     member self.hex = self |> getBytes |> Convert.ToHexString
     /// 转换到base64字符串
-    member self.base64 =
-        self |> getBytes |> Convert.ToBase64String
+    member self.base64 = self |> getBytes |> Convert.ToBase64String
 
 let decodeBase64 (base64: string) =
     base64
@@ -41,8 +39,7 @@ let decrypt (priKey: string) (paddingMode: RSAEncryptionPadding) (cipherText: st
 
 /// 生成RSA密钥对
 let genRsaKeyPair (keySize: uint16) =
-    let csp =
-        new RSACryptoServiceProvider(int keySize)
+    let csp = new RSACryptoServiceProvider(int keySize)
 
     let priKey =
         csp.ExportPkcs8PrivateKey()
@@ -67,16 +64,14 @@ let getCryptoViewData mode bitOrText key paddingMode =
     try
         match mode, bitOrText, key, paddingMode with
         | "gen_key", bits: string, _, _ ->
-            let keyPair =
-                bits |> Convert.ToUInt16 |> genRsaKeyPair
+            let keyPair = bits |> Convert.ToUInt16 |> genRsaKeyPair
 
             $"{{
-            \"priKey\":\"{keyPair.priKey.base64}\",\
-            \"pubKey\":\"{keyPair.pubKey.base64}\"\
-            }}"
+            \"priKey\":\"{keyPair.priKey.base64}\",
+            \"pubKey\":\"{keyPair.pubKey.base64}\"
+          }}"
         | "encrypt", plain, pubKey, "pkcs1_padding" ->
-            let cipher =
-                plain |> encrypt pubKey RSAEncryptionPadding.Pkcs1
+            let cipher = plain |> encrypt pubKey RSAEncryptionPadding.Pkcs1
 
             $"{{\"result\":\"{cipher.base64}\"}}"
 
@@ -102,11 +97,10 @@ let getCryptoViewData mode bitOrText key paddingMode =
             $"{{\"result\":\"{plain.base64}\"}}"
         | _ -> ""
     with
-    | e ->
-        println e
+    | _ ->
         //ERR in base64 is RVJS
-        "{
-            \"priKey\":\"RVJS\",\
-            \"pubKey\":\"RVJS\",\
-            \"result\":\"RVJS\"\
-         }"
+        """{
+                "priKey":"RVJS",\
+                "pubKey":"RVJS",\
+                "result":"RVJS"\
+           }"""

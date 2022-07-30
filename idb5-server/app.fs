@@ -1,10 +1,7 @@
-// For more information see https://aka.ms/fsharp-console-apps
-
 open System
 open System.Text
-open WebSocketer.Type
+open WebSocketer.typ
 open WebSocketer.Server
-open fsharper.op.Fmt
 
 open idb5_server.IdView
 open idb5_server.TimeView
@@ -12,8 +9,7 @@ open idb5_server.HashView
 open idb5_server.CryptoView
 open idb5_server.EncodingView
 
-println "Welcome to IDBuilder server."
-
+Console.WriteLine "Welcome to IDBuilder server."
 
 let decodeBase64 (base64: string) =
     base64
@@ -21,18 +17,21 @@ let decodeBase64 (base64: string) =
     |> Encoding.UTF8.GetString
 
 let f (ws: WebSocket) =
-    println "New client online."
+    Console.WriteLine "New client online."
 
     while true do
-        println "Waiting for request..."
+        Console.WriteLine "Waiting for request."
         let msg = ws.recv ()
-        println msg
+        Console.WriteLine msg
 
         let argv = msg.Split(" ")
 
         if msg.StartsWith "get_id_view_data" then
-            let palaflake_machine_id = argv.[1] |> Convert.ToByte
-            let palaflake_start_year = argv.[2] |> Convert.ToUInt16
+            let palaflake_machine_id =
+                argv.[1] |> Convert.ToByte
+
+            let palaflake_start_year =
+                argv.[2] |> Convert.ToUInt16
 
             genIdViewData palaflake_machine_id palaflake_start_year
             |> ws.send
@@ -56,7 +55,7 @@ let f (ws: WebSocket) =
                 getCryptoViewData mode bitsOrText key paddingMode
                 |> ws.send
             with
-            | e -> println (e.ToString())
+            | e -> Console.WriteLine(e.ToString())
 
         if msg.StartsWith "get_encoding_view_data" then
             let mode = argv.[1]

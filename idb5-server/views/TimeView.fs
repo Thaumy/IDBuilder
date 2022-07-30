@@ -21,9 +21,8 @@ let genTimeViewData utc_plus =
             .AddHours(utc_plus)
             .ToString("yyyy-MM-dd HH:mm:ss")
 
-
     $"{{\
             \"sec_timestamp\":\"{sec_timestamp}\",\
-            \"mili_timestamp\":\"{milis_timestamp}\",\
-            \"db_time_format\":\"{db_time_format}\"\
+       \"mili_timestamp\":\"{milis_timestamp}\",\
+             \"db_time_format\":\"{db_time_format}\"\
     }}"
