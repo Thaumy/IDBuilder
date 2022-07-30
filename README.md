@@ -2,7 +2,7 @@
 
 > 一个服务于Thaumy日常工作的小工具，用于规范化基础设施工作流。
 
-<div align=center><img src="appshot.png" width="100%"></div>
+<div align=center><img src="appshot.png" style="width: 100%; max-width: 800px"></div>
 
 ## 涵盖功能（IDBuilder5）
 
