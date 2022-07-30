@@ -2,6 +2,8 @@
 
 > 一个服务于Thaumy日常工作的小工具，用于规范化基础设施工作流。
 
+<div align=center><img src="appshot.png" style="width: 100%; max-width: 800px"></div>
+
 ## 涵盖功能（IDBuilder5）
 
 ### 标识
@@ -38,7 +40,7 @@ idb5-server:
 
 * 需要.NET6运行时  
 * 需要[WebSocketer](https://github.com/Thaumy/WebsSocketer)依赖  
-* 需要[palaflake](https://github.com/Thaumy/WebsSocketer)依赖  
+* 需要[pilipala.util](https://github.com/Thaumy/pilipala-fs)依赖  
 * 默认占用20222端口用作前后端通信
 
 ## 旧版本注意事项

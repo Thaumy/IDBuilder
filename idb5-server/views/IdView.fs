@@ -3,17 +3,15 @@ module idb5_server.IdView
 open System
 open System.Text
 open System.Collections
-open palaflake
+open pilipala.util.id
 
 let genRnd len (dic: char []) =
     let rnd = Random(int DateTime.Now.Ticks)
 
 
-    [| for _ in [ 1 .. len ] do
+    [| for _ in [ 1..len ] do
            dic.[rnd.Next(0, dic.Length - 1)] |]
     |> String
-
-
 
 let genIdViewData palaflake_machine_id palaflake_start_year : string =
 
@@ -22,7 +20,8 @@ let genIdViewData palaflake_machine_id palaflake_start_year : string =
     let ymd =
         let now = DateTime.Now
         //时间补位
-        let year = now.Year.ToString().PadLeft(2, '0')
+        let year =
+            now.Year.ToString().PadLeft(2, '0')
 
         let month =
             Convert.ToString(now.Month).PadLeft(2, '0')
@@ -38,14 +37,27 @@ let genIdViewData palaflake_machine_id palaflake_start_year : string =
 
         year + month + day + hour + minute
 
-    let ymd_xxxx = ymd + "_" + uuid.Substring(0, 4)
+    let ymd_xxxx =
+        ymd + "_" + uuid.Substring(0, 4)
 
     let palaflake =
-        Generator(palaflake_machine_id, palaflake_start_year)
+        palaflake
+            .Generator(palaflake_machine_id, palaflake_start_year)
             .Next()
 
     let rnd_number =
-        genRnd 12 [| '0'; '1'; '2'; '3'; '4'; '5'; '6'; '7'; '8'; '9' |]
+        genRnd
+            12
+            [| '0'
+               '1'
+               '2'
+               '3'
+               '4'
+               '5'
+               '6'
+               '7'
+               '8'
+               '9' |]
 
     let rnd_string =
         genRnd

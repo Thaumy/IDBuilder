@@ -3,7 +3,7 @@
     <v-list-item three-line>
       <v-list-item-content>
         <div class="overline mb-4">IDBuilder</div>
-        <v-list-item-title class="headline mb-1">ver 5.0.3</v-list-item-title>
+        <v-list-item-title class="headline mb-1">ver 5.1.0</v-list-item-title>
         <v-list-item-subtitle>This App under MIT License by Thaumy.</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
