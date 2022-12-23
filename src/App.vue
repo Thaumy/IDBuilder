@@ -1,52 +1,54 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Greet from "./components/Greet.vue";
-</script>
-
 <template>
-  <div class="container">
-    <h1>Welcome to Tauri!</h1>
+  <v-app style="height: 1000px">
+    <v-item-group mandatory selected-class="bg-primary">
+      <v-row style="margin: 0">
+        <v-col
+            v-for="it in tabs"
+            :key="it.title"
+            cols="2"
+        >
+          <v-item v-slot="{ selectedClass, toggle }">
+            <v-card
+                :class="['justify-center d-flex align-center', selectedClass]"
+                @click="toggle"
+                height="30"
+                :to="it.path"
+            >{{ it.title }}
+            </v-card>
+          </v-item>
+        </v-col>
+      </v-row>
+    </v-item-group>
 
-    <div class="row">
-      <a href="https://vitejs.dev" target="_blank">
-        <img src="/vite.svg" class="logo vite" alt="Vite logo" />
-      </a>
-      <a href="https://tauri.app" target="_blank">
-        <img src="/tauri.svg" class="logo tauri" alt="Tauri logo" />
-      </a>
-      <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-      </a>
-    </div>
+    <router-view class="px-2"/>
 
-    <p>Click on the Tauri, Vite, and Vue logos to learn more.</p>
-
-    <p>
-      Recommended IDE setup:
-      <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-      +
-      <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-      +
-      <a href="https://github.com/tauri-apps/tauri-vscode" target="_blank"
-        >Tauri</a
-      >
-      +
-      <a href="https://github.com/rust-lang/rust-analyzer" target="_blank"
-        >rust-analyzer</a
-      >
-    </p>
-
-    <Greet />
-  </div>
+  </v-app>
 </template>
 
-<style scoped>
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
+<script lang="ts" setup>
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #249b73);
-}
+const tabs = [
+  {
+    title: "ID", path: "/"
+  },
+  {
+    title: "Time", path: "/time"
+  },
+  {
+    title: "Hash", path: "/hash"
+  },
+  {
+    title: "Crypto", path: "/crypto"
+  },
+  {
+    title: "Encoding", path: "/encoding"
+  },
+  {
+    title: "About", path: "/about"
+  }]
+
+</script>
+
+<style lang="stylus" scoped>
+
 </style>

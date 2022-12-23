@@ -1,7 +1,7 @@
 {
   "name": "idbuilder",
   "private": true,
-  "version": "0.0.0",
+  "version": "6.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +10,13 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@mdi/font": "^7.1.96",
     "@tauri-apps/api": "^1.2.0",
-    "vue": "^3.2.45"
+    "stylus": "^0.59.0",
+    "vite-plugin-vuetify": "^1.0.1",
+    "vue": "^3.2.45",
+    "vue-router": "4",
+    "vuetify": "next"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.2.2",
