@@ -1,5 +1,6 @@
 <template>
-  <v-app style="height: 1000px">
+  <v-app>
+
     <v-item-group mandatory selected-class="bg-primary">
       <v-row style="margin: 0">
         <v-col
@@ -11,7 +12,7 @@
             <v-card
                 :class="['justify-center d-flex align-center', selectedClass]"
                 @click="toggle"
-                height="30"
+                height="50"
                 :to="it.path"
             >{{ it.title }}
             </v-card>
