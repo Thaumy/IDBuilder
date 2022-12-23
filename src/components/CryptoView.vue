@@ -3,45 +3,77 @@
   <div>
     <v-row class="mb-n12">
       <v-col cols="5">
-        <v-textarea rows="3" no-resize label="PKCS#1 Public Key" v-model="pubKey"></v-textarea>
+        <v-textarea
+            rows="3"
+            no-resize
+            label="PKCS#1 Public Key"
+            v-model="pubKey"
+        />
       </v-col>
       <v-col cols="2">
         <v-row justify="center" class="mt-4">
-          <v-btn class="py-10" height="32px" v-on:click="regen_btn()">REGEN</v-btn>
+          <v-btn
+              height="100px"
+              v-on:click="regen_btn()"
+          >REGEN
+          </v-btn>
         </v-row>
       </v-col>
       <v-col cols="5">
-        <v-textarea rows="3" no-resize label="PKCS#8 Private Key" v-model="priKey"></v-textarea>
+        <v-textarea
+            rows="3"
+            no-resize
+            label="PKCS#8 Private Key"
+            v-model="priKey"
+        />
       </v-col>
     </v-row>
 
-    <v-row class="mb-n10">
+    <v-row class="mb-2">
       <v-col cols="5">
-        <v-textarea no-resize label="Plain Text" v-model="plainText"></v-textarea>
+        <v-textarea
+            no-resize
+            label="Plain Text"
+            v-model="plainText"
+        />
       </v-col>
       <v-col cols="2" class="mt-4">
         <v-row justify="center" class="py-5">
-          <v-btn icon="mdi-arrow-right" v-on:click="encrypt()"></v-btn>
+          <v-btn
+              icon="mdi-arrow-right"
+              v-on:click="encrypt()"
+          />
         </v-row>
         <v-row justify="center" class="py-5">
-          <v-btn icon="mdi-arrow-left" v-on:click="decrypt()"></v-btn>
+          <v-btn
+              icon="mdi-arrow-left"
+              v-on:click="decrypt()"
+          />
         </v-row>
       </v-col>
       <v-col cols="5">
-        <v-textarea no-resize label="Cipher Text" v-model="cipherText"></v-textarea>
+        <v-textarea
+            no-resize
+            label="Cipher Text"
+            v-model="cipherText"
+        />
       </v-col>
     </v-row>
-    <v-radio-group
-        v-model="paddingMode"
-        class="my-n8"
-    >
+    <v-radio-group v-model="paddingMode">
       <v-row justify="center">
-
-        <v-col cols="3">
-          <v-radio label="PKCS1 OAEP padding" value="pkcs1_oaep_padding"></v-radio>
+        <v-col cols="4">
+          <v-radio
+              class="mt-2"
+              label="PKCS1 OAEP padding"
+              value="pkcs1_oaep_padding"
+          />
         </v-col>
         <v-col cols="3">
-          <v-radio label="PKCS1 padding" value="pkcs1_padding"></v-radio>
+          <v-radio
+              class="mt-2"
+              label="PKCS1 padding"
+              value="pkcs1_padding"
+          />
         </v-col>
         <v-col cols="2">
           <v-text-field
@@ -49,7 +81,7 @@
               type="number"
               v-model="bits"
               :error="bits_err"
-          ></v-text-field>
+          />
         </v-col>
       </v-row>
     </v-radio-group>
