@@ -10,13 +10,8 @@
     <v-card-actions>
       <v-btn
           target="_blank"
-          href="https://www.thaumy.cn/"
-      >about me
-      </v-btn>
-      <v-btn
-          target="_blank"
           href="https://github.com/Thaumy/IDBuilder"
-      >github repo
+      >view in github
       </v-btn>
     </v-card-actions>
   </v-card>
