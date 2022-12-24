@@ -1,9 +1,10 @@
 <template>
 
   <div>
-    <v-row class="mb-n12">
+    <v-row class="mb-n6">
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             v-model="uuid"
             label="UUID"
@@ -12,6 +13,7 @@
       </v-col>
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             label="Palaflake"
             prepend-inner-icon="mdi-alpha-p-box"
@@ -19,9 +21,10 @@
         />
       </v-col>
     </v-row>
-    <v-row class="mb-n12">
+    <v-row class="mb-n6">
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             label="YMD_XXXX"
             prepend-inner-icon="mdi-calendar-month"
@@ -30,6 +33,7 @@
       </v-col>
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             label="YMD"
             prepend-inner-icon="mdi-calendar-month"
@@ -40,6 +44,7 @@
     <v-row>
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             label="RndNumber"
             prepend-inner-icon="mdi-tilde"
@@ -48,6 +53,7 @@
       </v-col>
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             label="RndString"
             prepend-inner-icon="mdi-tilde"
@@ -56,9 +62,10 @@
       </v-col>
     </v-row>
 
-    <v-row justify="center" class="mt-10">
+    <v-row justify="center" class="mt-2">
       <v-col cols="4">
         <v-text-field
+            hide-details
             outlined
             label="Palaflake Machine ID [0,255]"
             type="number"
@@ -68,6 +75,7 @@
       </v-col>
       <v-col cols="5">
         <v-text-field
+            hide-details
             outlined
             label="Palaflake Start Year [0,now or 65535]"
             type="number"
@@ -85,6 +93,8 @@
 
     <v-row justify="center">
       <v-btn
+          class="position-absolute"
+          style="bottom: 40px"
           width="90%"
           height="60px"
           @click="regen_btn()"
