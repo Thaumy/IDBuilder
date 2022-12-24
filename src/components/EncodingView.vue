@@ -57,23 +57,16 @@
 <script lang="ts" setup>
 
 import {ref} from "vue"
+import {invoke} from "@tauri-apps/api/tauri"
 
 const src = ref("")
 const dst = ref("")
 
 const algh = ref("base64")
 
-function src_to_dst() {
-  /*
-    let base64str = btoa(this.src)
-
-    this.$ws.onmessage = (msg) => {
-      console.log(msg.data)
-      this.dst = JSON.parse(msg.data).result
-    }
-
-    this.$ws.send(`get_encoding_view_data encode ${this.algh} ${base64str}`)
-  */
+async function src_to_dst() {
+  let ret = await invoke('encoding_call', {str: src.value, mode: 'to_upper'})
+  dst.value = <String>ret
 }
 
 function dst_to_src() {
