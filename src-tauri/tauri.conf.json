@@ -60,10 +60,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
-        "resizable": true,
-        "title": "idbuilder",
-        "width": 800
+        "height": 530,
+        "resizable": false,
+        "title": "IDBuilder",
+        "width": 930
       }
     ]
   }

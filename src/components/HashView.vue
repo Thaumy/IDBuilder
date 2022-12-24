@@ -4,6 +4,7 @@
     <v-row>
       <v-col cols="12">
         <v-textarea
+            hide-details
             rows="6"
             label="Text"
             prepend-inner-icon="mdi-alpha-t-box"
@@ -12,7 +13,10 @@
       </v-col>
     </v-row>
 
-    <v-radio-group v-model="hash_algh">
+    <v-radio-group
+        v-model="hash_algh"
+        class="mt-4 mb-2"
+    >
       <v-row justify="center">
         <v-col cols="2">
           <v-radio label="MD5" value="md5"/>
@@ -38,6 +42,7 @@
     <v-row justify="center">
       <v-col>
         <v-text-field
+            hide-details
             label="Hash"
             prepend-inner-icon="mdi-alpha-h-box"
             v-model="hash"

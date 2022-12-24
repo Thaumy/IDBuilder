@@ -1,9 +1,10 @@
 <template>
 
   <div>
-    <v-row class="mb-n12">
+    <v-row class="mb-n6">
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             label="Sec Timestamp"
             prepend-inner-icon="mdi-alpha-s-box"
@@ -12,6 +13,7 @@
       </v-col>
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             label="Milisec Timestamp"
             prepend-inner-icon="mdi-alpha-m-box"
@@ -19,9 +21,10 @@
         />
       </v-col>
     </v-row>
-    <v-row class="mb-n12">
+    <v-row class="mb-n6">
       <v-col cols="6">
         <v-text-field
+            hide-details
             outlined
             label="ISO8601 Time Format"
             prepend-inner-icon="mdi-alpha-i-box"
@@ -30,6 +33,7 @@
       </v-col>
       <v-col cols="6">
         <v-text-field
+            hide-details
             disabled
             outlined
             label="-"
@@ -39,6 +43,7 @@
     <v-row>
       <v-col cols="6">
         <v-text-field
+            hide-details
             disabled
             outlined
             label="-"
@@ -46,15 +51,18 @@
       </v-col>
       <v-col cols="6">
         <v-text-field
+            hide-details
             disabled
             outlined
             label="-"
         />
       </v-col>
     </v-row>
-    <v-row justify="center" class="mt-10">
+
+    <v-row justify="center" class="mt-2">
       <v-col cols="2">
         <v-text-field
+            hide-details
             label="UTC+"
             type="number"
             v-model="utc_plus"
@@ -62,9 +70,11 @@
         />
       </v-col>
     </v-row>
-    <!-- 微调使之与idView的REGEN按钮对齐  -->
-    <v-row justify="center" class="mt-3">
+
+    <v-row justify="center">
       <v-btn
+          class="position-absolute"
+          style="bottom: 40px"
           width="90%"
           height="60px"
           v-on:click="regen_btn()"

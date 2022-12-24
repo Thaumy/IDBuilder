@@ -1,9 +1,18 @@
 <template>
 
   <div>
-    <v-textarea no-resize rows="4" label="Src" v-model="src"/>
+    <v-textarea
+        hide-details
+        no-resize
+        rows="4"
+        label="Src"
+        v-model="src"
+    />
 
-    <v-radio-group v-model="algh">
+    <v-radio-group
+        class="mt-6"
+        v-model="algh"
+    >
       <v-row justify="center">
         <v-col cols="1">
           <v-btn
@@ -34,7 +43,13 @@
       </v-row>
     </v-radio-group>
 
-    <v-textarea no-resize rows="5" label="Dst" v-model="dst"/>
+    <v-textarea
+        hide-details
+        no-resize
+        rows="5"
+        label="Dst"
+        v-model="dst"
+    />
   </div>
 
 </template>

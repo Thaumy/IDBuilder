@@ -1,9 +1,10 @@
 <template>
 
   <div>
-    <v-row class="mb-n12">
+    <v-row class="mb-n6">
       <v-col cols="5">
         <v-textarea
+            hide-details
             rows="3"
             no-resize
             label="PKCS#1 Public Key"
@@ -21,6 +22,7 @@
       </v-col>
       <v-col cols="5">
         <v-textarea
+            hide-details
             rows="3"
             no-resize
             label="PKCS#8 Private Key"
@@ -32,6 +34,7 @@
     <v-row class="mb-2">
       <v-col cols="5">
         <v-textarea
+            hide-details
             no-resize
             label="Plain Text"
             v-model="plainText"
@@ -53,6 +56,7 @@
       </v-col>
       <v-col cols="5">
         <v-textarea
+            hide-details
             no-resize
             label="Cipher Text"
             v-model="cipherText"
@@ -77,6 +81,7 @@
         </v-col>
         <v-col cols="2">
           <v-text-field
+              hide-details
               label="Bits"
               type="number"
               v-model="bits"
