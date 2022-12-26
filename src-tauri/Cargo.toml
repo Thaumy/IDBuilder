@@ -1,19 +1,24 @@
 [package]
 name = "idbuilder"
-version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
+version = "6.0.0"
+description = "ID generate tool"
+authors = ["Thaumy"]
+license = "MIT"
+repository = "https://github.com/Thaumy/IDBuilder"
 edition = "2021"
-rust-version = "1.57"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
 tauri-build = { version = "1.2", features = [] }
 
 [dependencies]
+rsa = "0.7.2"
+md5 = "0.7.0"
+hex = "0.4.3"
+rand = "0.8.5"
+sha256 = "1.1.1"
+bcrypt = "0.13.0"
+base64 = "0.20.0"
+chrono = "0.4.23"
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.2", features = ["shell-open"] }

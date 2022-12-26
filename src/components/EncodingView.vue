@@ -5,20 +5,20 @@
         hide-details
         no-resize
         rows="4"
-        label="Src"
-        v-model="src"
+        label="decoded"
+        v-model="decoded"
     />
 
     <v-radio-group
         class="mt-6"
-        v-model="algh"
+        v-model="mode"
     >
       <v-row justify="center">
         <v-col cols="1">
           <v-btn
               size="40"
               icon="mdi-arrow-down"
-              v-on:click="src_to_dst()"
+              v-on:click="encode()"
           ></v-btn>
         </v-col>
         <v-col cols="2">
@@ -37,7 +37,7 @@
           <v-btn
               size="40"
               icon="mdi-arrow-up"
-              v-on:click="dst_to_src()"
+              v-on:click="decode()"
           ></v-btn>
         </v-col>
       </v-row>
@@ -47,8 +47,8 @@
         hide-details
         no-resize
         rows="5"
-        label="Dst"
-        v-model="dst"
+        label="encoded"
+        v-model="encoded"
     />
   </div>
 
@@ -59,34 +59,19 @@
 import {ref} from "vue"
 import {invoke} from "@tauri-apps/api/tauri"
 
-const src = ref("")
-const dst = ref("")
+const decoded = ref("")
+const encoded = ref("")
 
-const algh = ref("base64")
+const mode = ref("base64")
 
-async function src_to_dst() {
-  let ret = await invoke('encoding_call', {str: src.value, mode: 'to_upper'})
-  dst.value = <String>ret
+async function encode() {
+  let result = await invoke('encode', {decoded: decoded.value, mode: mode.value})
+  encoded.value = <string>result
 }
 
-function dst_to_src() {
-  /*
-    let base64str = btoa(this.dst)
-
-    this.$ws.onmessage = (msg) => {
-      console.log(msg.data)
-      this.src = JSON.parse(msg.data).result
-    }
-
-    this.$ws.send(`get_encoding_view_data decode ${this.algh} ${base64str}`)
-  */
+async function decode() {
+  let result = await invoke('decode', {encoded: encoded.value, mode: mode.value})
+  decoded.value = <string>result
 }
+
 </script>
-
-<style lang="stylus" scoped>
-
-.v-input__details {
-  display: none !important;
-}
-
-</style>
