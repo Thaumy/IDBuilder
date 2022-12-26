@@ -1,14 +1,19 @@
+/*#![cfg_attr(
+all(not(debug_assertions), target_os = "windows"),
+windows_subsystem = "windows"
+)]
+*/
+
 mod view;
 
 use tauri::Manager;
-
 
 fn main() {
     tauri::Builder::default()
         .setup(|app| {
             #[cfg(debug_assertions)]
             {
-                let enable_dbg = false;
+                let enable_dbg = true;
                 if enable_dbg {
                     let window = app.get_window("main").unwrap();
                     window.open_devtools();
@@ -18,8 +23,9 @@ fn main() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
-            view::encoding::encode,
-            view::encoding::decode
+            view::encoding::encoding_encode,
+            view::encoding::encoding_decode,
+            view::time::time_generate
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

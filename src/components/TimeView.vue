@@ -8,16 +8,16 @@
             outlined
             label="Sec Timestamp"
             prepend-inner-icon="mdi-alpha-s-box"
-            v-model="sec_timestamp"
+            v-model="sec"
         />
       </v-col>
       <v-col cols="6">
         <v-text-field
             hide-details
             outlined
-            label="Milisec Timestamp"
+            label="Millisec Timestamp"
             prepend-inner-icon="mdi-alpha-m-box"
-            v-model="mili_timestamp"
+            v-model="milli"
         />
       </v-col>
     </v-row>
@@ -28,7 +28,7 @@
             outlined
             label="ISO8601 Time Format"
             prepend-inner-icon="mdi-alpha-i-box"
-            v-model="iso8601_time_format"
+            v-model="iso8601"
         />
       </v-col>
       <v-col cols="6">
@@ -65,8 +65,8 @@
             hide-details
             label="UTC+"
             type="number"
-            v-model="utc_plus"
-            :error="utc_plus_err"
+            v-model="offset"
+            :error="offset_err"
         />
       </v-col>
     </v-row>
@@ -77,7 +77,7 @@
           style="bottom: 40px"
           width="90%"
           height="60px"
-          v-on:click="regen_btn()"
+          v-on:click="generate()"
       >GENERATE
       </v-btn>
     </v-row>
@@ -88,40 +88,35 @@
 <script lang="ts" setup>
 
 import {ref} from "vue"
+import {invoke} from "@tauri-apps/api/tauri"
 
-const sec_timestamp = ref("")
-const mili_timestamp = ref("")
-const iso8601_time_format = ref("")
-const utc_plus = ref("0")
-const utc_plus_err = ref(false)
+const sec = ref("")
+const milli = ref("")
+const iso8601 = ref("")
+
+const offset = ref("0")
+const offset_err = ref(false)
 
 const data = ref({})
 
-function render() {
-  /*
-    this.sec_timestamp = this.data.sec_timestamp
-    this.mili_timestamp = this.data.mili_timestamp
-    this.db_time_format = this.data.db_time_format
-  */
-}
+async function generate() {
+  //检查合法性
+  if (Number(offset.value) < -12 || Number(offset.value) > 12) {
+    offset_err.value = true
+  } else {
+    offset_err.value = false
 
-function regen_btn() {
-  /*
-    //检查合法性
-    if (this.utc_plus < -12 || this.utc_plus > 12) {
-      this.utc_plus_err = true
-      return
-    } else
-      this.utc_plus_err = false
-
-    this.$ws.onmessage = (msg) => {
-      console.log(msg.data)
-      this.data = JSON.parse(msg.data)
-      this.render()
+    try {
+      let result = <any>await invoke('time_generate', {offset: offset.value})
+      sec.value = result.sec
+      milli.value = result.milli
+      iso8601.value = result.iso8601
+    } catch (e) {
+      sec.value = <string>e
+      milli.value = <string>e
+      iso8601.value = <string>e
     }
-
-    this.$ws.send(`get_time_view_data ${this.utc_plus}`)
-  */
+  }
 }
 
 </script>
