@@ -65,13 +65,21 @@ const encoded = ref("")
 const mode = ref("base64")
 
 async function encode() {
-  let result = await invoke('encode', {decoded: decoded.value, mode: mode.value})
-  encoded.value = <string>result
+  try {
+    let result = await invoke('encoding_encode', {decoded: decoded.value, mode: mode.value})
+    encoded.value = <string>result
+  } catch (e) {
+    encoded.value = <string>e
+  }
 }
 
 async function decode() {
-  let result = await invoke('decode', {encoded: encoded.value, mode: mode.value})
-  decoded.value = <string>result
+  try {
+    let result = await invoke('encoding_decode', {encoded: encoded.value, mode: mode.value})
+    decoded.value = <string>result
+  } catch (e) {
+    decoded.value = <string>e
+  }
 }
 
 </script>
