@@ -1,7 +1,8 @@
-with import <nixpkgs> {};
+with import <nixpkgs> {
+};
 
 let
-  libraries = with pkgs;[
+  libraries = with pkgs; [
     webkitgtk
     gtk3
     cairo
@@ -24,7 +25,7 @@ let
 
   corepack = stdenv.mkDerivation {
     name = "corepack";
-    buildInputs = [ pkgs.nodejs-18_x ];
+    buildInputs = with pkgs; [ nodejs-18_x ];
     phases = [ "installPhase" ];
     installPhase = ''
       mkdir -p $out/bin
