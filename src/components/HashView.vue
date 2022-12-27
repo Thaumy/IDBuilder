@@ -14,7 +14,7 @@
     </v-row>
 
     <v-radio-group
-        v-model="hash_algh"
+        v-model="hash_mode"
         class="mt-4 mb-2"
     >
       <v-row justify="center">
@@ -34,7 +34,7 @@
       <v-btn
           width="90%"
           height="60"
-          v-on:click="regen_btn()"
+          v-on:click="compute()"
       >COMPUTE
       </v-btn>
     </v-row>
@@ -56,31 +56,21 @@
 <script lang="ts" setup>
 
 import {ref} from "vue"
+import {invoke} from "@tauri-apps/api/tauri"
 
 const text = ref("")
 const hash = ref("")
-const hash_algh = ref("md5")
+const hash_mode = ref("md5")
 
 const data = ref({})
 
-function render() {
-  /*
-    this.hash = this.data.hash
-  */
-}
-
-function regen_btn() {
-  /*
-    let base64str = btoa(this.text)
-
-    this.$ws.onmessage = (msg) => {
-      console.log(msg.data)
-      this.data = JSON.parse(msg.data)
-      this.render()
-    }
-
-    this.$ws.send(`get_hash_view_data ${this.hash_algh} ${base64str}`)
-  */
+async function compute() {
+  try {
+    let result = await invoke('hash_compute', {text: text.value, hashMode: hash_mode.value})
+    hash.value = <string>result
+  } catch (e) {
+    hash.value = <string>e
+  }
 }
 
 </script>

@@ -25,7 +25,8 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             view::encoding::encoding_encode,
             view::encoding::encoding_decode,
-            view::time::time_generate
+            view::time::time_generate,
+            view::hash::hash_compute
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
