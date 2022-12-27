@@ -12,15 +12,14 @@ tauri-build = { version = "1.2", features = [] }
 
 [dependencies]
 rsa = "0.7.2"
-md5 = "0.7.0"
 hex = "0.4.3"
 rand = "0.8.5"
 uuid = "1.2.2"
-sha256 = "1.1.1"
 bcrypt = "0.13.0"
 base64 = "0.20.0"
 chrono = "0.4.23"
 serde_json = "1.0"
+rust-crypto = "0.2.36"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.2", features = ["shell-open"] }
 
