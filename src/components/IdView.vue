@@ -26,9 +26,9 @@
         <v-text-field
             hide-details
             outlined
-            label="YMD_XXXX"
+            label="YMD_RandNum"
             prepend-inner-icon="mdi-calendar-month"
-            v-model="ymd_xxxx"
+            v-model="ymd_rand_num"
         />
       </v-col>
       <v-col cols="6">
@@ -46,18 +46,18 @@
         <v-text-field
             hide-details
             outlined
-            label="RndNumber"
+            label="RandNum"
             prepend-inner-icon="mdi-tilde"
-            v-model="rnd_number"
+            v-model="rand_num"
         />
       </v-col>
       <v-col cols="6">
         <v-text-field
             hide-details
             outlined
-            label="RndString"
+            label="RandStr"
             prepend-inner-icon="mdi-tilde"
-            v-model="rnd_string"
+            v-model="rand_str"
         />
       </v-col>
     </v-row>
@@ -85,7 +85,7 @@
       </v-col>
       <v-col cols="2">
         <v-checkbox
-            v-model="no_joiner_uuid"
+            v-model="uuid_joiner"
             label="UUID joiner"
         />
       </v-col>
@@ -97,7 +97,7 @@
           style="bottom: 40px"
           width="90%"
           height="60px"
-          @click="regen_btn()"
+          @click="generate()"
       >GENERATE
       </v-btn>
     </v-row>
@@ -107,89 +107,81 @@
 
 <script lang="ts" setup>
 
-import {ref} from "vue"
+import {ref, watch} from "vue"
+import {invoke} from "@tauri-apps/api/tauri"
 
 const uuid = ref("")
 const palaflake = ref("")
-const ymd_xxxx = ref("")
+const ymd_rand_num = ref("")
 const ymd = ref("")
-const rnd_number = ref("")
-const rnd_string = ref("")
-const palaflake_machine_id = ref(1)
-const palaflake_start_year = ref(2022)
+const rand_num = ref("")
+const rand_str = ref("")
+
+const palaflake_machine_id = ref("1")
+const palaflake_start_year = ref("2022")
 
 const palaflake_machine_id_err = ref(false)
 const palaflake_start_year_err = ref(false)
-const no_joiner_uuid = ref(true)
+const uuid_joiner = ref(true)
 
 const data = ref({})
 
-function render() {
-  /*
-    this.uuid = this.data.uuid
-    this.palaflake = this.data.palaflake
-    this.ymd = this.data.ymd
-    this.ymd_xxxx = this.data.ymd_xxxx
-    this.rnd_number = this.data.rnd_number
-    this.rnd_string = this.data.rnd_string
+async function generate() {
+  //检查合法性
+  let pf_mid = Number(palaflake_machine_id.value)
+  let pf_sy = Number(palaflake_start_year.value)
 
-    if (this.no_joiner_uuid)
-      this.unjoin_uuid()
-    else if (!this.uuid.includes('-') && this.uuid.length === 32) //未格式化
-      this.join_uuid()
-  */
-}
+  let pf_mid_err = pf_mid < 0 || pf_mid > 255
+  let pf_sy_err = pf_sy > (new Date()).getFullYear() || pf_sy > 65535
 
-function regen_btn() {
-  /*
-    //检查合法性
-    if (this.palaflake_machine_id < 0 || this.palaflake_machine_id > 255) {
-      this.palaflake_machine_id_err = true
-      return
-    } else
-      this.palaflake_machine_id_err = false
-    if (this.palaflake_start_year > (new Date()).getFullYear() || this.palaflake.palaflake_start_year > 65535) {
-      this.palaflake_start_year_err = true
-      return
-    } else
-      this.palaflake_start_year_err = false
+  if (pf_mid_err || pf_sy_err) {
+    palaflake_machine_id_err.value = pf_mid_err
+    palaflake_start_year_err.value = pf_sy_err
+  } else {
+    try {
+      let result = <any>await invoke('id_generate', {
+        pfMid: palaflake_machine_id.value,
+        pfSy: palaflake_start_year.value
+      })
 
-    this.$ws.onmessage = (msg) => {
-      console.log(msg.data)
-      this.data = JSON.parse(msg.data)
-      this.render()
+      uuid.value = result.uuid
+      if (!uuid_joiner.value)
+        unjoin_uuid()
+      palaflake.value = result.palaflake
+      ymd.value = result.ymd
+      ymd_rand_num.value = result.ymd_rand_num
+      rand_num.value = result.rand_num
+      rand_str.value = result.rand_str
+    } catch (e) {
+      uuid.value = <string>e
+      palaflake.value = <string>e
+      ymd.value = <string>e
+      ymd_rand_num.value = <string>e
+      rand_num.value = <string>e
+      rand_str.value = <string>e
     }
-
-    this.$ws.send(`get_id_view_data ${this.palaflake_machine_id} ${this.palaflake_start_year}`)
-  */
+  }
 }
 
 function join_uuid() {//restore joiner
-  /*
-    let arr = this.uuid.split('')
-    //restore joiner
-    arr.splice(8, 0, '-')
-    arr.splice(13, 0, '-')
-    arr.splice(18, 0, '-')
+  let arr = uuid.value.split('')
+  //restore joiner
+  arr.splice(8, 0, '-')
+  arr.splice(13, 0, '-')
+  arr.splice(18, 0, '-')
 
-    this.uuid = arr.join('')
-  */
+  uuid.value = arr.join('')
 }
 
 function unjoin_uuid() {//remove joiner
-  /*
-    this.uuid = this.uuid.replace(/-/g, "")
-  */
+  uuid.value = uuid.value.replace(/-/g, "")
 }
 
-/*
-watch: {
-  no_joiner_uuid: function () {
-    if (this.no_joiner_uuid)
-      this.unjoin_uuid()
-    else if (!this.uuid.includes('-') && this.uuid.length === 32) //未格式化
-      this.join_uuid()
-  },
-},*/
+watch(uuid_joiner, async (next, _) => {
+  if (!next)
+    unjoin_uuid()
+  else if (!uuid.value.includes('-') && uuid.value.length === 32) //unjoin
+    join_uuid()
+})
 
 </script>

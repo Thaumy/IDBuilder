@@ -1225,11 +1225,13 @@ dependencies = [
  "bcrypt",
  "chrono",
  "hex",
+ "palaflake",
  "rand 0.8.5",
  "rsa",
  "rust-crypto",
  "serde",
  "serde_json",
+ "sha2",
  "tauri",
  "tauri-build",
  "uuid 1.2.2",
@@ -1736,6 +1738,13 @@ name = "overload"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
+
+[[package]]
+name = "palaflake"
+version = "1.1.0"
+dependencies = [
+ "chrono",
+]
 
 [[package]]
 name = "pango"
