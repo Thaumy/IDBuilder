@@ -15,7 +15,7 @@
         <v-row justify="center" class="mt-4">
           <v-btn
               height="100px"
-              v-on:click="regen_btn()"
+              v-on:click="generate()"
           >REGEN
           </v-btn>
         </v-row>
@@ -97,55 +97,59 @@
 <script lang="ts" setup>
 
 import {ref} from "vue"
+import {invoke} from "@tauri-apps/api/tauri"
 
 const pubKey = ref("")
 const priKey = ref("")
 const plainText = ref("")
 const cipherText = ref("")
+
 const paddingMode = ref("pkcs1_padding")
 const bits = ref("4096")
 const bits_err = ref(false)
 
-function regen_btn() {
-  /*
-    this.$ws.onmessage = (msg) => {
-      console.log(msg.data)
-      let data = JSON.parse(msg.data)
-      this.pubKey = atob(data.pubKey)
-      this.priKey = atob(data.priKey)
-    }
+async function generate() {
+  //检查合法性
+  bits_err.value = Number(bits.value) < 512 || Number(bits.value) > 8192
+  if (!bits_err.value) {
+    try {
+      let result = <any>await invoke('crypto_generate', {
+        bits: bits.value
+      })
 
-    //检查合法性
-    if (this.bits < 512 || this.bits > 8192) {
-      this.palaflake_machine_id_err = true
-      return
-    } else
-      this.palaflake_machine_id_err = false
-    //为保证json格式，get_crypto_view_data的参数2和参数3均需要转base64
-    this.$ws.send(`get_crypto_view_data gen_key ${btoa(this.bits)} Xw== Xw==`)
-  */
+      pubKey.value = result.pub_key
+      priKey.value = result.pri_key
+    } catch (e) {
+      pubKey.value = <string>e
+      priKey.value = <string>e
+    }
+  }
 }
 
-function encrypt() {
-  /*
-    this.$ws.onmessage = (msg) => {
-      console.log(msg.data)
-      this.cipherText = atob(JSON.parse(msg.data).result)
-    }
-
-    this.$ws.send(`get_crypto_view_data encrypt ${btoa(this.plainText)} ${btoa(this.pubKey)} ${this.paddingMode}`)
-  */
+async function encrypt() {
+  try {
+    let result = await invoke('crypto_encrypt', {
+      plain: plainText.value,
+      pubKey: pubKey.value,
+      paddingMode: paddingMode.value
+    })
+    cipherText.value = <string>result
+  } catch (e) {
+    cipherText.value = <string>e
+  }
 }
 
-function decrypt() {
-  /*
-    this.$ws.onmessage = (msg) => {
-      console.log(msg.data)
-      this.plainText = atob(JSON.parse(msg.data).result)
-    }
-
-    this.$ws.send(`get_crypto_view_data decrypt ${btoa(this.cipherText)} ${btoa(this.priKey)} ${this.paddingMode}`)
-  */
+async function decrypt() {
+  try {
+    let result = await invoke('crypto_decrypt', {
+      cipher: cipherText.value,
+      priKey: priKey.value,
+      paddingMode: paddingMode.value
+    })
+    plainText.value = <string>result
+  } catch (e) {
+    plainText.value = <string>e
+  }
 }
 
 </script>

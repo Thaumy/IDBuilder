@@ -23,10 +23,14 @@ fn main() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            view::id::id_generate,
+            view::hash::hash_compute,
+            view::time::time_generate,
+            view::crypto::crypto_encrypt,
+            view::crypto::crypto_decrypt,
+            view::crypto::crypto_generate,
             view::encoding::encoding_encode,
             view::encoding::encoding_decode,
-            view::time::time_generate,
-            view::hash::hash_compute
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
