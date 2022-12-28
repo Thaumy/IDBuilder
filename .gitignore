@@ -18,13 +18,8 @@
 *.7z
 *.gz
 
-# logs
+# log
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
 # os
 System Volume Information
@@ -58,10 +53,6 @@ cmake-build-debug-coverage
 cmake-build-debug
 
 # build
-node_modules
-dist-ssr
-*.local
 build
-dist
 bin
 obj
