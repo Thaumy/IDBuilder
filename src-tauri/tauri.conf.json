@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "idbuilder",
-    "version": "0.0.0"
+    "version": "6.0.0"
   },
   "tauri": {
     "allowlist": {
@@ -33,7 +33,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "idbuilder",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
