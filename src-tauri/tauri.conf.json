@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "idbuilder",
-    "version": "6.0.0"
+    "version": "6.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -44,7 +44,9 @@
       },
       "resources": [],
       "shortDescription": "",
-      "targets": "all",
+      "targets": [
+        "deb"
+      ],
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
