@@ -6,7 +6,10 @@ use uuid::Version::Sha1;
 use crypto::sha2::Sha256;
 use crypto::digest::Digest;
 use rand::{Rng, SeedableRng, thread_rng};
+
 use palaflake::Generator;
+use ruster::functional::monad;
+use ruster::functional::monad::MonadExt;
 
 #[derive(serde::Serialize)]
 pub struct IdViewData {
@@ -28,7 +31,7 @@ pub fn id_generate(pf_mid: &str, pf_sy: &str) -> Result<IdViewData, String> {
             let rand_num = (rng.gen_range(0.0..1.0) * 100000000.0) as i32;
             let utc_now = Utc::now();
 
-            Ok(IdViewData {
+            IdViewData {
                 uuid: Uuid::new_v4().to_string(),
                 palaflake: pf_gen.next().to_string(),
                 ymd: utc_now.format("%y%m%d").to_string(),
@@ -39,7 +42,7 @@ pub fn id_generate(pf_mid: &str, pf_sy: &str) -> Result<IdViewData, String> {
                     h.input(rand_num.to_string().as_bytes());
                     h.result_str()[..8].to_string()
                 },
-            })
+            }.unit_to()
         }
         _ => Err("Err: pd_mid or pf_sy parse failed".to_string()),
     }
