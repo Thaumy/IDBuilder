@@ -1,6 +1,6 @@
 [package]
 name = "idbuilder"
-version = "6.0.0"
+version = "6.0.1"
 description = "ID generate tool"
 authors = ["Thaumy"]
 license = "MIT"
@@ -24,6 +24,7 @@ rust-crypto = "0.2.36"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.2", features = ["shell-open"] }
 
+# please put these dependencies into src-tauri/src/dep folder
 ruster = { path = "./deps/ruster" }
 palaflake = { path = "./deps/palaflake" }
 
