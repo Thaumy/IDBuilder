@@ -6,6 +6,7 @@ windows_subsystem = "windows"
 
 mod view;
 
+use ruster::functional::monad::MonadExt;
 use tauri::Manager;
 
 fn main() {
@@ -20,7 +21,7 @@ fn main() {
                     window.close_devtools();
                 }
             }
-            Ok(())
+            ().unit_to()
         })
         .invoke_handler(tauri::generate_handler![
             view::id::id_generate,

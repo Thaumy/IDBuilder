@@ -3,6 +3,9 @@ use chrono::prelude::{DateTime, Utc};
 use std::time::{SystemTime, Duration, UNIX_EPOCH};
 use chrono::FixedOffset;
 
+use ruster::functional::monad;
+use ruster::functional::monad::MonadExt;
+
 #[derive(serde::Serialize)]
 pub struct TimeViewData {
     sec: String,
@@ -26,11 +29,11 @@ pub fn time_generate(offset: String) -> Result<TimeViewData, String> {
             let sec = utc_now.timestamp();
             let milli = utc_now.timestamp_millis();
 
-            Ok(TimeViewData {
+            TimeViewData {
                 sec: sec.to_string(),
                 milli: milli.to_string(),
                 iso8601: utc_now.format("%+").to_string(),
-            })
+            }.unit_to()
         }
         Err(_) => Err("Err: offset parse failed".to_string())
     }
