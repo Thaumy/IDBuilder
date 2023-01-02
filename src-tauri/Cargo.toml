@@ -24,7 +24,7 @@ rust-crypto = "0.2.36"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "1.2", features = ["shell-open"] }
 
-# please put these dependencies into src-tauri/src/dep folder
+# please put these dependencies into src-tauri/deps folder
 ruster = { path = "./deps/ruster" }
 palaflake = { path = "./deps/palaflake" }
 
