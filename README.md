@@ -34,6 +34,47 @@
 * HEX 字符串互转换
 * Base64 互转换
 
+## 依赖项和手动编译
+
+需将如下依赖放置在 `src-tauri/deps` ：
+
+[ruster](https://github.com/Thaumy/ruster)  
+[palaflake](https://github.com/Thaumy/palaflake)
+
+即，应具备如下目录结构：
+
+```text
+src-tauri/deps
+├── palaflake
+│   ├── Cargo.lock
+│   ├── Cargo.toml
+│   ├── src
+│   └── target
+└── ruster
+    ├── Cargo.lock
+    ├── Cargo.toml
+    ├── src
+    └── target
+```
+
+Then, run `yarn tauri build` to compile.
+
+## 使用 Nix 进行包管理
+
+Nix 是一种采用独特方法进行包管理和系统配置的工具，它能够提供可重现的构建和部署。
+
+[NUR](https://github.com/nix-community/NUR) 提供了由 Nix 社区驱动的的软件包，[启用 NUR](https://github.com/nix-community/NUR#installation) 后，可通过如下方式安装本应用：
+
+编辑 `configuration.nix` ：
+
+```nix
+environment.systemPackages = with pkgs; [
+  nur.repos.thaumy.idbuilder
+];
+```
+
+由于此软件不以二进制发行，Nix 会完成对整个程序的编译和安装，所以可能需要等待较长时间。
+
 ## 旧版本注意事项
 
 * IDBuilder5
