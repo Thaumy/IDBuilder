@@ -2,10 +2,10 @@ use std::str;
 use std::ops::Deref;
 
 use sha2::Sha256;
-use rsa::{PublicKey, RsaPrivateKey, RsaPublicKey, PaddingScheme};
-use rsa::pkcs1::{DecodeRsaPublicKey, EncodeRsaPublicKey};
 use rsa::pkcs1::LineEnding::LF;
 use rsa::pkcs8::{DecodePrivateKey, EncodePrivateKey};
+use rsa::pkcs1::{DecodeRsaPublicKey, EncodeRsaPublicKey};
+use rsa::{PublicKey, RsaPrivateKey, RsaPublicKey, PaddingScheme};
 
 use ruster::functional::monad;
 use ruster::functional::monad::MonadExt;

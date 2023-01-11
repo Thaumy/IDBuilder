@@ -1,5 +1,6 @@
-use base64;
 use std::str;
+
+use base64;
 use hex::ToHex;
 
 #[tauri::command]

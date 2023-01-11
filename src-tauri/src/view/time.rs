@@ -1,7 +1,8 @@
 use std::num::ParseIntError;
+
+use chrono::FixedOffset;
 use chrono::prelude::{DateTime, Utc};
 use std::time::{SystemTime, Duration, UNIX_EPOCH};
-use chrono::FixedOffset;
 
 use ruster::functional::monad;
 use ruster::functional::monad::MonadExt;
