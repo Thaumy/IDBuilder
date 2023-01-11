@@ -1,6 +1,6 @@
 [package]
 name = "idbuilder"
-version = "6.0.1"
+version = "6.0.2"
 description = "ID generate tool"
 authors = ["Thaumy"]
 license = "MIT"
