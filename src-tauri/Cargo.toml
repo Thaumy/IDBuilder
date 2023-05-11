@@ -1,6 +1,6 @@
 [package]
 name = "idbuilder"
-version = "6.0.2"
+version = "6.0.3"
 description = "ID generate tool"
 authors = ["Thaumy"]
 license = "MIT"
@@ -12,12 +12,12 @@ tauri-build = { version = "1.2", features = [] }
 
 [dependencies]
 hex = "0.4.3"
-rsa = "0.7.2"
+rsa = "0.9.0"
 rand = "0.8.5"
 uuid = "1.2.2"
 sha2 = "0.10.6"
-bcrypt = "0.13.0"
-base64 = "0.20.0"
+bcrypt = "0.14.0"
+base64 = "0.21.0"
 chrono = "0.4.23"
 serde_json = "1.0"
 rust-crypto = "0.2.36"
