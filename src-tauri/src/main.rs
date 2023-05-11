@@ -16,7 +16,9 @@ fn main() {
             {
                 let enable_dbg = true;
                 if enable_dbg {
-                    let window = app.get_window("main").unwrap();
+                    let window = app
+                        .get_window("main")
+                        .unwrap();
                     window.open_devtools();
                     window.close_devtools();
                 }

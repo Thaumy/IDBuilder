@@ -1,25 +1,24 @@
-with import <nixpkgs> {
-};
+with import <nixpkgs> { };
 
 let
   libraries = with pkgs; [
-    webkitgtk
     gtk3
     cairo
-    gdk-pixbuf
     glib
     dbus
+    webkitgtk
     openssl_3
+    gdk-pixbuf
   ];
 
   packages = with pkgs; [
-    pkg-config
     dbus
-    openssl_3
     glib
     gtk3
     libsoup
     webkitgtk
+    openssl_3
+    pkg-config
     appimagekit
   ];
 
@@ -32,12 +31,12 @@ let
       corepack enable --install-directory=$out/bin
     '';
   };
-in
-pkgs.mkShell {
+in pkgs.mkShell {
   buildInputs = packages ++ [ corepack ];
 
-  shellHook =
-    ''
-      export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath libraries}:$LD_LIBRARY_PATH
-    '';
+  shellHook = ''
+    export LD_LIBRARY_PATH=${
+      pkgs.lib.makeLibraryPath libraries
+    }:$LD_LIBRARY_PATH
+  '';
 }

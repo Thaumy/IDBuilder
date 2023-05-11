@@ -27,6 +27,9 @@
         <v-col cols="2">
           <v-radio label="SHA256" value="sha256"/>
         </v-col>
+        <v-col cols="2">
+          <v-radio label="BCrypt" value="bcrypt"/>
+        </v-col>
       </v-row>
     </v-radio-group>
 
