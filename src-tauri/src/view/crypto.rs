@@ -1,12 +1,13 @@
 use std::ops::Deref;
 use std::str;
 
+use base64;
+use base64::Engine;
 use rsa::pkcs1::LineEnding::LF;
 use rsa::pkcs1::{DecodeRsaPublicKey, EncodeRsaPublicKey};
 use rsa::pkcs8::{DecodePrivateKey, EncodePrivateKey};
 use rsa::traits::PaddingScheme;
 use rsa::{Oaep, Pkcs1v15Encrypt, RsaPrivateKey, RsaPublicKey};
-//use rsa::{PaddingScheme, PublicKey, RsaPrivateKey, RsaPublicKey};
 use ruster::functional::monad::MonadExt;
 use sha2::Sha256;
 
@@ -65,7 +66,12 @@ pub fn crypto_encrypt(
     ) -> Result<String, String> {
         let mut rng = rand::thread_rng();
         match pub_key.encrypt(&mut rng, padding, plain.as_ref()) {
-            Ok(vec_u8) => Ok(base64::encode(vec_u8.as_slice())),
+            Ok(vec_u8) => {
+                let base64 =
+                    base64::engine::general_purpose::STANDARD
+                        .encode(vec_u8.as_slice());
+                Ok(base64)
+            }
             Err(_) => Err("Err: failed to encrypt".to_string())
         }
     }
@@ -106,24 +112,28 @@ pub fn crypto_decrypt(
         }
     }
     match RsaPrivateKey::from_pkcs8_pem(pri_key) {
-        Ok(pri_key) => match base64::decode(cipher) {
-            Ok(cipher) => match padding_mode {
-                "pkcs1_oaep_padding" => {
-                    let padding = Oaep::new::<Sha256>();
-                    decrypt(pri_key, cipher, padding)
-                }
-                "pkcs1_padding" => {
-                    let padding = Pkcs1v15Encrypt::default();
-                    decrypt(pri_key, cipher, padding)
-                }
-                _ =>
-                    return Err(
-                        "Err: invalid padding_mode".to_string()
-                    ),
-            },
-            Err(_) =>
-                Err("Err: invalid base64 cipher text".to_string()),
-        },
+        Ok(pri_key) => {
+            let decoded = base64::engine::general_purpose::STANDARD
+                .decode(cipher);
+            match decoded {
+                Ok(cipher) => match padding_mode {
+                    "pkcs1_oaep_padding" => {
+                        let padding = Oaep::new::<Sha256>();
+                        decrypt(pri_key, cipher, padding)
+                    }
+                    "pkcs1_padding" => {
+                        let padding = Pkcs1v15Encrypt::default();
+                        decrypt(pri_key, cipher, padding)
+                    }
+                    _ =>
+                        return Err(
+                            "Err: invalid padding_mode".to_string()
+                        ),
+                },
+                Err(_) =>
+                    Err("Err: invalid base64 cipher text".to_string()),
+            }
+        }
         Err(_) => Err("Err: failed to parse pri key".to_string())
     }
 }
