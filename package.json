@@ -16,9 +16,10 @@
     "vite-plugin-vuetify": "^1.0.1",
     "vue": "^3.2.45",
     "vue-router": "4",
-    "vuetify": "next"
+    "vuetify": "3.3.1"
   },
   "devDependencies": {
+    "@babel/types": "^7.21.5",
     "@tauri-apps/cli": "^1.2.2",
     "@types/node": "^18.7.10",
     "@vitejs/plugin-vue": "^4.0.0",

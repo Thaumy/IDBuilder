@@ -8,10 +8,10 @@
                         :key="it.title"
                         cols="2"
                 >
-                    <v-item v-slot="{  toggle }">
+                    <v-item v-slot="{ toggle }">
                         <v-card
                                 :class="['justify-center d-flex align-center']"
-                                @click="toggle"
+                                :onclick="toggle"
                                 height="50"
                                 :to="it.path"
                         >{{ it.title }}
